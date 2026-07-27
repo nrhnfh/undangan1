@@ -10,11 +10,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Poppins:wght@200;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
     <style>
-        /* ===== RESET & BASE ===== */
+        /* ===== RESET ===== */
         * {
             margin: 0;
             padding: 0;
@@ -34,11 +33,28 @@
                 radial-gradient(ellipse at 80% 80%, #1a2a5a 0%, transparent 50%);
         }
 
-        /* ===== MOCKUP PHONE ===== */
+        .phone-wrapper {
+            position: relative;
+            padding: 20px;
+        }
+
+        .phone-wrapper::before {
+            content: '';
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 60px;
+            background: radial-gradient(ellipse, rgba(0,0,0,0.3) 0%, transparent 70%);
+            filter: blur(20px);
+            z-index: 0;
+        }
+
         .phone-mockup {
             width: 100%;
             max-width: 390px;
-            height: 780px;
+            height: 820px;
             background: linear-gradient(170deg, #f0f4f8, #e8edf5);
             border-radius: 48px;
             overflow: hidden;
@@ -49,15 +65,66 @@
                 0 0 60px rgba(100, 149, 237, 0.05),
                 inset 0 0 60px rgba(173, 216, 230, 0.03);
             transition: all 0.3s ease;
+            z-index: 1;
+            animation: floatPhone 6s ease-in-out infinite;
         }
 
-        /* ===== SCROLL CONTAINER ===== */
+        @keyframes floatPhone {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(0.5deg); }
+        }
+
+        .phone-notch {
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 28px;
+            background: #0a0e1a;
+            border-radius: 20px;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        }
+
+        .phone-notch .camera {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #1a2a5a, #0a0e1a);
+            box-shadow: inset 0 0 4px rgba(0,0,0,0.5);
+        }
+
+        .phone-notch .dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: #1a3a6a;
+            opacity: 0.5;
+        }
+
+        .home-indicator {
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: rgba(10, 14, 26, 0.15);
+            border-radius: 4px;
+            z-index: 100;
+        }
+
         .app-container {
             height: 100%;
             overflow-y: auto;
             overflow-x: hidden;
             scroll-behavior: smooth;
-            padding: 0 20px 20px;
+            padding: 50px 20px 20px;
             position: relative;
             background: linear-gradient(170deg, #f0f4f8, #e8edf5);
             background-image:
@@ -79,7 +146,7 @@
             border-radius: 10px;
         }
 
-        /* ===== LOADING SCREEN ===== */
+        /* ===== LOADING ===== */
         #loading-screen {
             position: absolute;
             top: 0;
@@ -171,7 +238,7 @@
             50% { opacity: 1; transform: scale(1.05); }
         }
 
-        /* ===== WATERCOLOR FLORAL DECOR ===== */
+        /* ===== FLORAL DECOR ===== */
         .floral-decor {
             position: absolute;
             pointer-events: none;
@@ -245,23 +312,7 @@
             transform: rotate(-15deg);
         }
 
-        /* ===== GLASSMORPHISM ===== */
-        .glass {
-            background: rgba(255, 255, 255, 0.45);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.04);
-        }
-
-        .glass-dark {
-            background: rgba(10, 14, 26, 0.4);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid rgba(255, 255, 255, 0.04);
-        }
-
-        /* ===== SECTION 1: COVER ===== */
+        /* ===== COVER SECTION ===== */
         .cover-section {
             min-height: 100%;
             display: flex;
@@ -269,7 +320,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 50px 24px;
+            padding: 30px 24px;
             position: relative;
             background: linear-gradient(170deg, #f0f4f8 0%, #e4eaf2 40%, #dce4ed 100%);
             border-radius: 0 0 48px 48px;
@@ -292,19 +343,12 @@
             pointer-events: none;
         }
 
-        .cover-section .floral-decor-1 {
-            opacity: 0.35;
-        }
-        .cover-section .floral-decor-2 {
-            opacity: 0.3;
-        }
-
         .cover-photo {
-            width: 150px;
-            height: 150px;
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
             background: linear-gradient(145deg, #dce4ed, #c8d2e0);
-            margin-bottom: 24px;
+            margin-bottom: 16px;
             position: relative;
             box-shadow:
                 0 30px 80px rgba(100, 149, 237, 0.08),
@@ -342,13 +386,13 @@
             letter-spacing: 3px;
             text-transform: uppercase;
             color: #4169E1;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             animation: fadeInUp 1.2s ease 0.05s both;
         }
 
         .cover-title {
             font-family: 'Great Vibes', cursive;
-            font-size: 20px;
+            font-size: 18px;
             color: #4169E1;
             letter-spacing: 2px;
             margin-bottom: 2px;
@@ -357,7 +401,7 @@
 
         .cover-couple {
             font-family: 'Playfair Display', serif;
-            font-size: 38px;
+            font-size: 30px;
             font-weight: 600;
             color: #0a1a3a;
             letter-spacing: 3px;
@@ -368,21 +412,20 @@
 
         .cover-couple .ampersand {
             font-family: 'Great Vibes', cursive;
-            font-size: 32px;
+            font-size: 26px;
             color: #d4af37;
             display: inline-block;
-            margin: 0 8px;
-            text-shadow: 0 0 40px rgba(212, 175, 55, 0.08);
+            margin: 0 6px;
         }
 
         .cover-sub {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 15px;
+            font-size: 13px;
             font-weight: 400;
             color: #4a6a8a;
-            letter-spacing: 6px;
+            letter-spacing: 5px;
             text-transform: uppercase;
-            margin-bottom: 24px;
+            margin-bottom: 16px;
             animation: fadeInUp 1.2s ease 0.2s both;
         }
 
@@ -390,14 +433,14 @@
             width: 60px;
             height: 1px;
             background: linear-gradient(90deg, transparent, #d4af37, transparent);
-            margin: 0 auto 18px;
+            margin: 0 auto 14px;
             opacity: 0.3;
             animation: fadeInUp 1.2s ease 0.25s both;
         }
 
         .cover-guest {
             font-family: 'Poppins', sans-serif;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 300;
             color: #4a6a8a;
             letter-spacing: 3px;
@@ -408,13 +451,13 @@
         .cover-guest-name-wrapper {
             position: relative;
             display: inline-block;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             animation: fadeInUp 1.2s ease 0.35s both;
         }
 
         .cover-guest-name {
             font-family: 'Playfair Display', serif;
-            font-size: 30px;
+            font-size: 24px;
             font-weight: 500;
             color: #0a1a3a;
             position: relative;
@@ -442,26 +485,15 @@
             animation: fadeInUp 1.2s ease 0.4s both;
         }
 
-        .admin-edit-area .edit-hint {
+        .admin-lock-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
             font-family: 'Poppins', sans-serif;
-            font-size: 9px;
+            font-size: 8px;
             color: #4169E1;
-            opacity: 0.3;
+            opacity: 0.2;
             letter-spacing: 1px;
-            font-weight: 300;
-        }
-
-        .admin-edit-area .admin-badge {
-            font-family: 'Poppins', sans-serif;
-            font-size: 7px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #d4af37;
-            background: rgba(212, 175, 55, 0.06);
-            padding: 2px 8px;
-            border-radius: 50px;
-            border: 1px solid rgba(212, 175, 55, 0.04);
-            opacity: 0.3;
         }
 
         .btn-edit-guest {
@@ -489,18 +521,16 @@
             background: linear-gradient(145deg, #4169E1, #3158C8, #1a4aaf);
             color: #fff;
             border: none;
-            padding: 18px 52px;
+            padding: 14px 44px;
             border-radius: 50px;
             font-family: 'Poppins', sans-serif;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
             letter-spacing: 3px;
             text-transform: uppercase;
             cursor: pointer;
             transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            box-shadow:
-                0 12px 40px rgba(65, 105, 225, 0.25),
-                inset 0 1px 0 rgba(255, 255, 255, 0.15);
+            box-shadow: 0 12px 40px rgba(65, 105, 225, 0.25);
             position: relative;
             overflow: hidden;
             animation: fadeInUp 1.2s ease 0.45s both;
@@ -528,21 +558,17 @@
             box-shadow: 0 18px 50px rgba(65, 105, 225, 0.35);
         }
 
-        .btn-primary:active {
-            transform: scale(0.97);
-        }
-
-        /* ===== SECTION 2: MAIN ===== */
+        /* ===== MAIN SECTION ===== */
         .main-section {
-            padding: 28px 0 20px;
+            padding: 20px 0 20px;
             position: relative;
         }
 
         .section-divider {
             text-align: center;
-            margin: 6px 0 16px;
+            margin: 4px 0 14px;
             font-family: 'Great Vibes', cursive;
-            font-size: 22px;
+            font-size: 20px;
             color: #d4af37;
             letter-spacing: 3px;
             opacity: 0.3;
@@ -554,16 +580,193 @@
             background: #f0f4f8;
         }
 
-        .app-container.dark .section-divider span {
-            background: #0a0e1a;
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            color: #0a1a3a;
+            text-align: center;
+            font-weight: 500;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
         }
 
+        .section-title .gold {
+            color: #d4af37;
+        }
+
+        /* ===== COUPLE INFO ===== */
+        .couple-info {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .couple-card {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 20px;
+            padding: 16px 18px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
+            transition: all 0.3s ease;
+        }
+
+        .couple-card:hover {
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+        }
+
+        .couple-card .role {
+            font-family: 'Poppins', sans-serif;
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #4169E1;
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+
+        .couple-card .name {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: #0a1a3a;
+        }
+
+        .couple-card .parents {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 14px;
+            color: #4a6a8a;
+            margin-top: 2px;
+            font-weight: 400;
+        }
+
+        .couple-card .parents i {
+            color: #d4af37;
+            margin: 0 4px;
+            font-size: 10px;
+            opacity: 0.5;
+        }
+
+        .couple-card .divider-line {
+            width: 30px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+            margin: 4px 0;
+            opacity: 0.3;
+        }
+
+        /* ===== WEDDING DETAILS ===== */
+        .wedding-details {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 20px;
+            padding: 16px 18px;
+            margin-bottom: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
+            text-align: center;
+        }
+
+        .wedding-details .date {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: #0a1a3a;
+        }
+
+        .wedding-details .date i {
+            color: #d4af37;
+            margin-right: 8px;
+        }
+
+        .wedding-details .place {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 16px;
+            color: #4a6a8a;
+            margin-top: 2px;
+        }
+
+        .wedding-details .place i {
+            color: #d4af37;
+            margin-right: 6px;
+        }
+
+        /* ===== GUEST LIST (Turut Mengundang) ===== */
+        .guest-list {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 20px;
+            padding: 16px 18px;
+            margin-bottom: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .guest-list .guest-label {
+            font-family: 'Great Vibes', cursive;
+            font-size: 18px;
+            color: #d4af37;
+            text-align: center;
+            letter-spacing: 2px;
+            opacity: 0.6;
+            margin-bottom: 8px;
+        }
+
+        .guest-list .guest-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4px 12px;
+        }
+
+        .guest-list .guest-item {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 13px;
+            color: #2a4a6a;
+            font-weight: 400;
+            padding: 2px 0;
+            position: relative;
+            padding-left: 12px;
+        }
+
+        .guest-list .guest-item::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 8px;
+            color: #d4af37;
+            opacity: 0.3;
+        }
+
+        .guest-list .guest-item.span-2 {
+            grid-column: span 2;
+            text-align: center;
+            padding-left: 0;
+        }
+
+        .guest-list .guest-item.span-2::before {
+            display: none;
+        }
+
+        .guest-list .guest-item .title {
+            font-size: 10px;
+            color: #4169E1;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* ===== HERO ===== */
         .hero-image {
             width: 100%;
-            height: 220px;
-            border-radius: 28px;
+            height: 200px;
+            border-radius: 24px;
             background: linear-gradient(145deg, #dce4ed, #c8d2e0);
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             position: relative;
             overflow: hidden;
             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.04);
@@ -580,44 +783,40 @@
             bottom: 0;
             left: 0;
             right: 0;
-            padding: 24px 20px 16px;
+            padding: 20px 20px 14px;
             background: linear-gradient(0deg, rgba(10,14,26,0.25) 0%, transparent 100%);
         }
 
         .hero-image .hero-overlay .tag {
             font-family: 'Great Vibes', cursive;
-            font-size: 14px;
+            font-size: 13px;
             color: rgba(255,255,255,0.8);
             letter-spacing: 2px;
         }
 
+        /* ===== COUNTDOWN ===== */
         .countdown-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-            margin-bottom: 24px;
+            gap: 8px;
+            margin-bottom: 20px;
         }
 
         .countdown-item {
             background: rgba(255, 255, 255, 0.5);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border-radius: 20px;
-            padding: 14px 4px;
+            border-radius: 16px;
+            padding: 12px 4px;
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.5);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
             transition: all 0.3s ease;
         }
 
-        .countdown-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
-        }
-
         .countdown-number {
             font-family: 'Playfair Display', serif;
-            font-size: 32px;
+            font-size: 28px;
             font-weight: 600;
             color: #0a1a3a;
             line-height: 1;
@@ -629,7 +828,7 @@
 
         .countdown-label {
             font-family: 'Poppins', sans-serif;
-            font-size: 9px;
+            font-size: 8px;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: #6a8aaa;
@@ -637,25 +836,22 @@
             font-weight: 300;
         }
 
+        /* ===== INFO CARDS ===== */
         .info-card {
             background: rgba(255, 255, 255, 0.5);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border-radius: 24px;
-            padding: 20px 22px;
-            margin-bottom: 14px;
+            border-radius: 20px;
+            padding: 16px 18px;
+            margin-bottom: 12px;
             border: 1px solid rgba(255, 255, 255, 0.4);
             box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
             transition: all 0.3s ease;
         }
 
-        .info-card:hover {
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
-        }
-
         .info-card .label {
             font-family: 'Poppins', sans-serif;
-            font-size: 10px;
+            font-size: 9px;
             text-transform: uppercase;
             letter-spacing: 3px;
             color: #4169E1;
@@ -664,7 +860,7 @@
 
         .info-card .value {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 19px;
+            font-size: 17px;
             font-weight: 500;
             color: #0a1a3a;
             margin-top: 2px;
@@ -672,46 +868,39 @@
 
         .info-card .value i {
             color: #d4af37;
-            margin-right: 10px;
-            font-size: 15px;
+            margin-right: 8px;
+            font-size: 14px;
             width: 20px;
             text-align: center;
         }
 
         .info-card .sub {
-            font-size: 13px;
+            font-size: 12px;
             color: #4a6a8a;
             font-family: 'Poppins', sans-serif;
             font-weight: 300;
             margin-top: 2px;
         }
 
-        .info-card .sub i {
-            color: #d4af37;
-            margin-right: 6px;
-        }
-
         .btn-outline {
             background: transparent;
             border: 1px solid rgba(65, 105, 225, 0.15);
-            padding: 10px 22px;
+            padding: 8px 18px;
             border-radius: 50px;
             font-family: 'Poppins', sans-serif;
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 400;
             color: #0a1a3a;
             cursor: pointer;
             transition: all 0.4s ease;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
 
         .btn-outline:hover {
             background: rgba(65, 105, 225, 0.03);
             border-color: #4169E1;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 16px rgba(65, 105, 225, 0.04);
         }
 
         .btn-outline i {
@@ -723,11 +912,12 @@
             border: 1px solid rgba(212, 175, 55, 0.08);
         }
 
+        /* ===== GALLERY ===== */
         .gallery-scroll {
             display: flex;
-            gap: 14px;
+            gap: 12px;
             overflow-x: auto;
-            padding: 4px 0 16px;
+            padding: 4px 0 14px;
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
         }
@@ -735,30 +925,25 @@
         .gallery-scroll::-webkit-scrollbar {
             height: 2px;
         }
-        .gallery-scroll::-webkit-scrollbar-track {
-            background: transparent;
-        }
         .gallery-scroll::-webkit-scrollbar-thumb {
             background: rgba(65, 105, 225, 0.15);
             border-radius: 10px;
         }
 
         .gallery-item {
-            min-width: 150px;
-            height: 170px;
-            border-radius: 24px;
+            min-width: 130px;
+            height: 150px;
+            border-radius: 20px;
             background: linear-gradient(145deg, #dce4ed, #c8d2e0);
             flex-shrink: 0;
             scroll-snap-align: start;
             overflow: hidden;
             box-shadow: 0 6px 24px rgba(0, 0, 0, 0.03);
-            position: relative;
             transition: all 0.3s ease;
         }
 
         .gallery-item:hover {
             transform: scale(1.02);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
         }
 
         .gallery-item img {
@@ -767,47 +952,48 @@
             object-fit: cover;
         }
 
+        /* ===== RSVP ===== */
         .rsvp-section {
-            padding: 8px 0 20px;
+            padding: 4px 0 20px;
         }
 
         .rsvp-form {
             background: rgba(255, 255, 255, 0.4);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border-radius: 28px;
-            padding: 28px 24px;
+            border-radius: 24px;
+            padding: 22px 20px;
             border: 1px solid rgba(255, 255, 255, 0.3);
             box-shadow: 0 4px 28px rgba(0, 0, 0, 0.02);
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         .form-group {
-            margin-bottom: 18px;
+            margin-bottom: 14px;
         }
 
         .form-group label {
             font-family: 'Poppins', sans-serif;
-            font-size: 10px;
+            font-size: 9px;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: #4a6a8a;
             font-weight: 400;
             display: block;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
 
         .form-group select,
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 14px 18px;
+            padding: 12px 16px;
             border: 1px solid rgba(65, 105, 225, 0.06);
-            border-radius: 16px;
+            border-radius: 14px;
             background: rgba(255, 255, 255, 0.5);
             backdrop-filter: blur(6px);
             font-family: 'Poppins', sans-serif;
-            font-size: 14px;
+            font-size: 13px;
             color: #0a1a3a;
             transition: all 0.4s ease;
             outline: none;
@@ -826,19 +1012,19 @@
         }
 
         .form-group textarea {
-            min-height: 80px;
+            min-height: 70px;
             resize: vertical;
         }
 
         .btn-submit {
             width: 100%;
-            padding: 16px;
+            padding: 14px;
             background: linear-gradient(145deg, #4169E1, #3158C8, #1a4aaf);
             color: #fff;
             border: none;
             border-radius: 50px;
             font-family: 'Poppins', sans-serif;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 500;
             letter-spacing: 2px;
             cursor: pointer;
@@ -851,17 +1037,14 @@
             box-shadow: 0 12px 40px rgba(65, 105, 225, 0.25);
         }
 
-        .btn-submit:active {
-            transform: scale(0.98);
-        }
-
+        /* ===== WISHES ===== */
         .wish-item {
             background: rgba(255, 255, 255, 0.3);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
-            border-radius: 20px;
-            padding: 16px 18px;
-            margin-bottom: 12px;
+            border-radius: 18px;
+            padding: 14px 16px;
+            margin-bottom: 10px;
             border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
         }
@@ -873,14 +1056,14 @@
 
         .wish-item .name {
             font-family: 'Playfair Display', serif;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 500;
             color: #0a1a3a;
         }
 
         .wish-item .msg {
             font-family: 'Poppins', sans-serif;
-            font-size: 13px;
+            font-size: 12px;
             color: #2a4a6a;
             margin: 4px 0 6px;
             font-weight: 300;
@@ -889,18 +1072,18 @@
 
         .wish-item .meta {
             font-family: 'Poppins', sans-serif;
-            font-size: 10px;
+            font-size: 9px;
             color: #6a8aaa;
             display: flex;
             align-items: center;
-            gap: 14px;
+            gap: 12px;
             flex-wrap: wrap;
         }
 
         .wish-item .reactions {
             display: flex;
-            gap: 8px;
-            font-size: 16px;
+            gap: 6px;
+            font-size: 14px;
         }
 
         .wish-item .reactions span {
@@ -914,19 +1097,19 @@
 
         .rsvp-stats {
             display: flex;
-            gap: 20px;
+            gap: 16px;
             justify-content: center;
-            padding: 12px 0 18px;
+            padding: 10px 0 16px;
             flex-wrap: wrap;
         }
 
         .rsvp-stats .stat {
             font-family: 'Poppins', sans-serif;
-            font-size: 12px;
+            font-size: 11px;
             color: #4a6a8a;
             background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(6px);
-            padding: 6px 18px;
+            padding: 4px 14px;
             border-radius: 50px;
             border: 1px solid rgba(255, 255, 255, 0.15);
             display: flex;
@@ -939,19 +1122,20 @@
             color: #0a1a3a;
         }
 
+        /* ===== FLOATING ===== */
         .floating-actions {
             position: sticky;
-            bottom: 16px;
+            bottom: 12px;
             display: flex;
             justify-content: center;
-            gap: 12px;
-            padding: 8px 0;
+            gap: 10px;
+            padding: 6px 0;
             z-index: 50;
         }
 
         .floating-btn {
-            width: 48px;
-            height: 48px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(20px);
@@ -962,14 +1146,13 @@
             align-items: center;
             justify-content: center;
             color: #0a1a3a;
-            font-size: 17px;
+            font-size: 15px;
             cursor: pointer;
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         .floating-btn:hover {
             transform: translateY(-4px) scale(1.05);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
         }
 
         .floating-btn:active {
@@ -986,24 +1169,21 @@
             opacity: 0.4;
         }
 
-        .floating-btn.music.off:hover {
-            opacity: 0.7;
-        }
-
+        /* ===== FOOTER ===== */
         .footer {
             text-align: center;
-            padding: 24px 0 12px;
+            padding: 20px 0 10px;
             font-family: 'Poppins', sans-serif;
-            font-size: 9px;
+            font-size: 8px;
             color: #6a8aaa;
             letter-spacing: 2px;
             border-top: 1px solid rgba(65, 105, 225, 0.03);
-            margin-top: 12px;
+            margin-top: 10px;
         }
 
         .footer .brand {
             font-family: 'Great Vibes', cursive;
-            font-size: 18px;
+            font-size: 16px;
             color: #d4af37;
             display: block;
             margin-bottom: 4px;
@@ -1018,14 +1198,8 @@
         }
 
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes float {
@@ -1035,6 +1209,79 @@
 
         .float-anim {
             animation: float 5s ease-in-out infinite;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 3px 14px;
+            border-radius: 50px;
+            font-size: 9px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            background: rgba(65, 105, 225, 0.03);
+            color: #4169E1;
+            border: 1px solid rgba(65, 105, 225, 0.04);
+        }
+
+        .dark-toggle {
+            position: absolute;
+            top: 56px;
+            right: 20px;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            padding: 3px 5px;
+            display: flex;
+            gap: 3px;
+        }
+
+        .dark-toggle button {
+            background: transparent;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 50px;
+            font-size: 11px;
+            cursor: pointer;
+            color: #4a6a8a;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .dark-toggle button.active {
+            background: rgba(255, 255, 255, 0.3);
+            color: #0a1a3a;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.02);
+        }
+
+        .online-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 8px;
+            color: #27ae60;
+            opacity: 0.5;
+            letter-spacing: 0.5px;
+            background: rgba(39, 174, 96, 0.04);
+            padding: 2px 10px;
+            border-radius: 50px;
+            border: 1px solid rgba(39, 174, 96, 0.04);
+            margin-top: 4px;
+        }
+
+        .online-status .dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #27ae60;
+            animation: pulse-dot 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 0.3; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
         }
 
         /* ===== DARK MODE ===== */
@@ -1052,20 +1299,29 @@
         .app-container.dark .cover-couple,
         .app-container.dark .cover-guest-name,
         .app-container.dark .countdown-number,
-        .app-container.dark .info-card .value {
+        .app-container.dark .info-card .value,
+        .app-container.dark .couple-card .name,
+        .app-container.dark .section-title,
+        .app-container.dark .wedding-details .date {
             color: #e8edf5;
         }
 
         .app-container.dark .cover-sub,
         .app-container.dark .cover-guest,
         .app-container.dark .countdown-label,
-        .app-container.dark .form-group label {
+        .app-container.dark .form-group label,
+        .app-container.dark .couple-card .parents,
+        .app-container.dark .wedding-details .place,
+        .app-container.dark .guest-list .guest-item {
             color: #6a8aaa;
         }
 
         .app-container.dark .info-card,
         .app-container.dark .rsvp-form,
-        .app-container.dark .wish-item {
+        .app-container.dark .wish-item,
+        .app-container.dark .couple-card,
+        .app-container.dark .wedding-details,
+        .app-container.dark .guest-list {
             background: rgba(255, 255, 255, 0.02);
             border-color: rgba(255, 255, 255, 0.02);
         }
@@ -1177,51 +1433,33 @@
             background: linear-gradient(145deg, #0f1a3a, #0a0e1a);
         }
 
-        .status-badge {
-            display: inline-block;
-            padding: 4px 16px;
-            border-radius: 50px;
-            font-size: 10px;
-            font-weight: 500;
-            letter-spacing: 1px;
-            background: rgba(65, 105, 225, 0.03);
-            color: #4169E1;
-            border: 1px solid rgba(65, 105, 225, 0.04);
+        .app-container.dark .section-divider span {
+            background: #0a0e1a;
         }
 
-        .dark-toggle {
-            position: absolute;
-            top: 16px;
-            right: 20px;
-            z-index: 10;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 50px;
-            padding: 4px 6px;
-            display: flex;
-            gap: 4px;
-        }
-
-        .dark-toggle button {
-            background: transparent;
-            border: none;
-            padding: 6px 12px;
-            border-radius: 50px;
-            font-size: 12px;
-            cursor: pointer;
+        .app-container.dark .admin-lock-badge {
             color: #4a6a8a;
-            transition: all 0.3s ease;
-            font-family: 'Poppins', sans-serif;
         }
 
-        .dark-toggle button.active {
-            background: rgba(255, 255, 255, 0.3);
-            color: #0a1a3a;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.02);
+        .app-container.dark .online-status {
+            color: #2ecc71;
+            border-color: rgba(46, 204, 113, 0.04);
         }
 
-        /* ===== MODAL EDIT TAMU (ADMIN ONLY) ===== */
+        .app-container.dark .online-status .dot {
+            background: #2ecc71;
+        }
+
+        .app-container.dark .guest-list .guest-item::before {
+            color: #d4af37;
+            opacity: 0.15;
+        }
+
+        .app-container.dark .guest-list .guest-item .title {
+            color: #6495ED;
+        }
+
+        /* ===== MODAL ===== */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -1248,18 +1486,13 @@
 
         .modal-content {
             background: #f0f4f8;
-            border-radius: 32px;
-            padding: 36px 32px;
+            border-radius: 28px;
+            padding: 32px 28px;
             max-width: 360px;
             width: 90%;
             box-shadow: 0 40px 100px rgba(0, 0, 0, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.1);
             animation: slideUp 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        .app-container.dark .modal-content {
-            background: #0a0e1a;
-            border-color: rgba(255, 255, 255, 0.02);
         }
 
         @keyframes slideUp {
@@ -1269,92 +1502,132 @@
 
         .modal-content .modal-icon {
             text-align: center;
-            font-size: 32px;
-            margin-bottom: 8px;
+            font-size: 28px;
+            margin-bottom: 6px;
             color: #d4af37;
             opacity: 0.4;
         }
 
         .modal-content h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 22px;
+            font-size: 20px;
             color: #0a1a3a;
             text-align: center;
             margin-bottom: 4px;
         }
 
-        .app-container.dark .modal-content h3 {
-            color: #e8edf5;
-        }
-
         .modal-content .modal-sub {
             font-family: 'Poppins', sans-serif;
-            font-size: 13px;
+            font-size: 12px;
             color: #4a6a8a;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .app-container.dark .modal-content .modal-sub {
-            color: #4a6a8a;
-        }
-
-        .modal-content .admin-note {
-            font-family: 'Poppins', sans-serif;
-            font-size: 10px;
-            color: #4169E1;
             text-align: center;
             margin-bottom: 16px;
-            opacity: 0.5;
-            letter-spacing: 1px;
-            background: rgba(65, 105, 225, 0.02);
-            padding: 6px 12px;
-            border-radius: 50px;
-            display: inline-block;
-            width: 100%;
         }
 
-        .modal-content .admin-note i {
-            margin-right: 4px;
+        .password-section {
+            margin: 10px 0 14px;
         }
 
-        .modal-content input {
-            width: 100%;
-            padding: 14px 18px;
+        .password-section label {
+            font-family: 'Poppins', sans-serif;
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #4a6a8a;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .password-section .password-input-wrapper {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .password-section input {
+            flex: 1;
+            padding: 10px 14px;
             border: 1px solid rgba(65, 105, 225, 0.06);
-            border-radius: 16px;
+            border-radius: 12px;
             background: rgba(255, 255, 255, 0.3);
             font-family: 'Poppins', sans-serif;
-            font-size: 16px;
+            font-size: 13px;
             color: #0a1a3a;
             outline: none;
             transition: all 0.3s ease;
         }
 
-        .app-container.dark .modal-content input {
-            background: rgba(255, 255, 255, 0.02);
-            border-color: rgba(255, 255, 255, 0.04);
-            color: #e8edf5;
+        .password-section input:focus {
+            border-color: #4169E1;
+            box-shadow: 0 0 0 3px rgba(65, 105, 225, 0.04);
         }
 
-        .modal-content input:focus {
-            border-color: #4169E1;
-            box-shadow: 0 0 0 4px rgba(65, 105, 225, 0.04);
+        .password-section .btn-verify {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(145deg, #4169E1, #3158C8);
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .password-section .btn-verify:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(65, 105, 225, 0.15);
+        }
+
+        .password-section .password-error {
+            font-family: 'Poppins', sans-serif;
+            font-size: 10px;
+            color: #e74c3c;
+            margin-top: 4px;
+            display: none;
+        }
+
+        .password-section .password-error.show {
+            display: block;
+        }
+
+        .password-section .password-success {
+            font-family: 'Poppins', sans-serif;
+            font-size: 10px;
+            color: #27ae60;
+            margin-top: 4px;
+            display: none;
+        }
+
+        .password-section .password-success.show {
+            display: block;
+        }
+
+        .name-edit-area {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .name-edit-area.show {
+            display: block;
+            animation: fadeInUp 0.3s ease;
         }
 
         .modal-actions {
             display: flex;
-            gap: 12px;
-            margin-top: 20px;
+            gap: 10px;
+            margin-top: 16px;
         }
 
         .modal-actions button {
             flex: 1;
-            padding: 14px;
+            padding: 12px;
             border: none;
             border-radius: 50px;
             font-family: 'Poppins', sans-serif;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 500;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -1364,12 +1637,6 @@
             background: rgba(0,0,0,0.02);
             color: #4a6a8a;
             border: 1px solid rgba(0,0,0,0.04);
-        }
-
-        .app-container.dark .modal-actions .btn-cancel {
-            background: rgba(255,255,255,0.02);
-            color: #4a6a8a;
-            border-color: rgba(255,255,255,0.02);
         }
 
         .modal-actions .btn-cancel:hover {
@@ -1387,121 +1654,35 @@
             box-shadow: 0 8px 28px rgba(65, 105, 225, 0.2);
         }
 
-        .password-section {
-            margin: 12px 0 16px;
+        .app-container.dark .modal-content {
+            background: #0a0e1a;
+            border-color: rgba(255, 255, 255, 0.02);
         }
 
-        .password-section label {
-            font-family: 'Poppins', sans-serif;
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        .app-container.dark .modal-content h3 {
+            color: #e8edf5;
+        }
+
+        .app-container.dark .modal-content .modal-sub {
             color: #4a6a8a;
-            display: block;
-            margin-bottom: 6px;
         }
 
-        .password-section .password-input-wrapper {
-            display: flex;
-            gap: 8px;
-            align-items: center;
+        .app-container.dark .modal-content input {
+            background: rgba(255, 255, 255, 0.02);
+            border-color: rgba(255, 255, 255, 0.04);
+            color: #e8edf5;
         }
 
-        .password-section input {
-            flex: 1;
-            padding: 10px 14px;
-            border: 1px solid rgba(65, 105, 225, 0.06);
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.3);
-            font-family: 'Poppins', sans-serif;
-            font-size: 14px;
-            color: #0a1a3a;
-            outline: none;
-            transition: all 0.3s ease;
+        .app-container.dark .modal-actions .btn-cancel {
+            background: rgba(255,255,255,0.02);
+            color: #4a6a8a;
+            border-color: rgba(255,255,255,0.02);
         }
 
         .app-container.dark .password-section input {
             background: rgba(255, 255, 255, 0.02);
             border-color: rgba(255, 255, 255, 0.04);
             color: #e8edf5;
-        }
-
-        .password-section input:focus {
-            border-color: #4169E1;
-            box-shadow: 0 0 0 3px rgba(65, 105, 225, 0.04);
-        }
-
-        .password-section .btn-verify {
-            padding: 10px 18px;
-            border: none;
-            border-radius: 12px;
-            background: linear-gradient(145deg, #4169E1, #3158C8);
-            color: #fff;
-            font-family: 'Poppins', sans-serif;
-            font-size: 12px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-        }
-
-        .password-section .btn-verify:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 16px rgba(65, 105, 225, 0.15);
-        }
-
-        .password-section .password-error {
-            font-family: 'Poppins', sans-serif;
-            font-size: 11px;
-            color: #e74c3c;
-            margin-top: 4px;
-            display: none;
-        }
-
-        .password-section .password-error.show {
-            display: block;
-        }
-
-        .password-section .password-success {
-            font-family: 'Poppins', sans-serif;
-            font-size: 11px;
-            color: #27ae60;
-            margin-top: 4px;
-            display: none;
-        }
-
-        .password-section .password-success.show {
-            display: block;
-        }
-
-        .name-edit-area {
-            display: none;
-            margin-top: 12px;
-        }
-
-        .name-edit-area.show {
-            display: block;
-            animation: fadeInUp 0.3s ease;
-        }
-
-        .admin-lock-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 8px;
-            color: #4169E1;
-            opacity: 0.2;
-            letter-spacing: 1px;
-            margin-top: 2px;
-        }
-
-        .admin-lock-badge i {
-            font-size: 10px;
-        }
-
-        .app-container.dark .admin-lock-badge {
-            color: #4a6a8a;
         }
 
         @media (max-width: 420px) {
@@ -1511,56 +1692,81 @@
                 border-radius: 0;
                 max-height: 820px;
             }
-            .cover-couple {
-                font-size: 32px;
+            .phone-wrapper::before {
+                display: none;
             }
-            .countdown-number {
-                font-size: 26px;
+            .phone-notch {
+                display: none;
             }
-        }
-
-        @media (max-height: 700px) {
-            .cover-photo {
-                width: 110px;
-                height: 110px;
+            .home-indicator {
+                display: none;
+            }
+            .app-container {
+                padding-top: 20px;
+            }
+            .dark-toggle {
+                top: 16px;
             }
             .cover-couple {
                 font-size: 28px;
             }
             .countdown-number {
-                font-size: 22px;
+                font-size: 24px;
+            }
+            .guest-list .guest-grid {
+                grid-template-columns: 1fr;
+            }
+            .guest-list .guest-item.span-2 {
+                grid-column: span 1;
+            }
+        }
+
+        @media (max-height: 700px) {
+            .cover-photo {
+                width: 100px;
+                height: 100px;
+            }
+            .cover-couple {
+                font-size: 24px;
+            }
+            .countdown-number {
+                font-size: 20px;
             }
             .hero-image {
-                height: 160px;
+                height: 150px;
             }
             .gallery-item {
-                min-width: 110px;
-                height: 130px;
+                min-width: 100px;
+                height: 120px;
+            }
+            .couple-card .name {
+                font-size: 17px;
+            }
+            .wedding-details .date {
+                font-size: 15px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- ===== MODAL EDIT TAMU (ADMIN ONLY) ===== -->
+    <!-- ===== MODAL EDIT TAMU ===== -->
     <div class="modal-overlay" id="guestModal">
         <div class="modal-content">
             <div class="modal-icon">🔒</div>
             <h3>✧ Edit Nama Tamu ✧</h3>
             <p class="modal-sub">Hanya admin yang dapat mengubah nama tamu</p>
-
             <div class="password-section">
                 <label>Masukkan Kode Admin</label>
                 <div class="password-input-wrapper">
                     <input type="password" id="adminPassword" placeholder="Kode admin..." />
                     <button class="btn-verify" onclick="verifyAdmin()">Verifikasi</button>
                 </div>
-                <div class="password-error" id="passwordError">❌ Kode admin salah. Silakan coba lagi.</div>
-                <div class="password-success" id="passwordSuccess">✅ Verifikasi berhasil! Anda dapat mengubah nama tamu.</div>
+                <div class="password-error" id="passwordError">❌ Kode admin salah.</div>
+                <div class="password-success" id="passwordSuccess">✅ Verifikasi berhasil!</div>
             </div>
-
             <div class="name-edit-area" id="nameEditArea">
-                <label style="font-family:'Poppins',sans-serif; font-size:10px; text-transform:uppercase; letter-spacing:2px; color:#4a6a8a; display:block; margin-bottom:6px;">Nama Tamu</label>
+                <label style="font-family:'Poppins',sans-serif; font-size:9px; text-transform:uppercase; letter-spacing:2px; color:#4a6a8a; display:block; margin-bottom:4px;">Nama Tamu</label>
                 <input type="text" id="guestNameInput" placeholder="Masukkan nama tamu" />
                 <div class="modal-actions">
                     <button class="btn-cancel" onclick="closeGuestModal()">Batal</button>
@@ -1571,314 +1777,306 @@
     </div>
 
     <!-- ===== PHONE MOCKUP ===== -->
-    <div class="phone-mockup" id="app">
-        <!-- Loading Screen -->
-        <div id="loading-screen">
-            <div class="loader-ring"></div>
-            <div class="loader-text">
-                <span>H</span><span>a</span><span>n</span><span>i</span><span>f</span><span>a</span><span>h</span>
-                <span style="margin:0 4px;">&</span>
-                <span>F</span><span>a</span><span>r</span><span>i</span><span>d</span>
-            </div>
-        </div>
+    <div class="phone-wrapper">
+        <div class="phone-mockup" id="app">
 
-        <!-- Main App -->
-        <div class="app-container" id="appContainer">
-
-            <!-- Floral Decor -->
-            <div class="floral-decor floral-decor-1"></div>
-            <div class="floral-decor floral-decor-2"></div>
-
-            <!-- Dark Mode Toggle -->
-            <div class="dark-toggle">
-                <button class="active" id="lightMode" onclick="setTheme('light')">☀</button>
-                <button id="darkMode" onclick="setTheme('dark')">🌙</button>
+            <!-- Notch -->
+            <div class="phone-notch">
+                <div class="camera"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
             </div>
 
-            <!-- ============================== -->
-            <!-- SECTION 1: COVER               -->
-            <!-- ============================== -->
-            <section class="cover-section" id="cover">
-                <div class="cover-badge">✦ We're Getting Married ✦</div>
+            <!-- Home Indicator -->
+            <div class="home-indicator"></div>
 
-                <div class="cover-photo float-anim">
-                    <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=200&h=200&fit=crop&crop=center" alt="Hanifah & Farid" />
+            <!-- Loading -->
+            <div id="loading-screen">
+                <div class="loader-ring"></div>
+                <div class="loader-text">
+                    <span>H</span><span>a</span><span>n</span><span>i</span><span>f</span><span>a</span><span>h</span>
+                    <span style="margin:0 4px;">&</span>
+                    <span>F</span><span>a</span><span>r</span><span>i</span><span>d</span>
+                </div>
+            </div>
+
+            <!-- Main App -->
+            <div class="app-container" id="appContainer">
+
+                <!-- Floral Decor -->
+                <div class="floral-decor floral-decor-1"></div>
+                <div class="floral-decor floral-decor-2"></div>
+
+                <!-- Dark Mode -->
+                <div class="dark-toggle">
+                    <button class="active" id="lightMode" onclick="setTheme('light')">☀</button>
+                    <button id="darkMode" onclick="setTheme('dark')">🌙</button>
                 </div>
 
-                <div class="cover-title">The Wedding Of</div>
-                <div class="cover-couple">
-                    Hanifah <span class="ampersand">&</span> Farid
-                </div>
-                <div class="cover-sub">— 14 Juni 2025 —</div>
-                <div class="cover-divider"></div>
-
-                <div class="cover-guest">Kepada Yth.</div>
-                <div class="cover-guest-name-wrapper">
-                    <div class="cover-guest-name" id="guestNameDisplay">Bapak/Ibu Tamu</div>
-                </div>
-
-                <div class="admin-edit-area">
-                    <span class="admin-lock-badge"><i class="fas fa-lock"></i> Admin Only</span>
-                    <button class="btn-edit-guest" onclick="openGuestModal()">
-                        <i class="fas fa-pen"></i> Edit Nama
+                <!-- ===== COVER ===== -->
+                <section class="cover-section" id="cover">
+                    <div class="cover-badge">✦ We're Getting Married ✦</div>
+                    <div class="cover-photo float-anim">
+                        <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=200&h=200&fit=crop&crop=center" alt="Hanifah & Farid" />
+                    </div>
+                    <div class="cover-title">The Wedding Of</div>
+                    <div class="cover-couple">
+                        Nurhanifah <span class="ampersand">&</span> Farid
+                    </div>
+                    <div class="cover-sub">— 05 September 2026 —</div>
+                    <div class="cover-divider"></div>
+                    <div class="cover-guest">Kepada Yth.</div>
+                    <div class="cover-guest-name-wrapper">
+                        <div class="cover-guest-name" id="guestNameDisplay">Bapak/Ibu Tamu</div>
+                    </div>
+                    <div class="admin-edit-area">
+                        <span class="admin-lock-badge"><i class="fas fa-lock"></i> Admin Only</span>
+                        <button class="btn-edit-guest" onclick="openGuestModal()">
+                            <i class="fas fa-pen"></i> Edit Nama
+                        </button>
+                    </div>
+                    <button class="btn-primary" onclick="openInvitation()">
+                        <i class="fas fa-envelope-open" style="margin-right: 12px;"></i> Buka Undangan
                     </button>
-                </div>
+                </section>
 
-                <button class="btn-primary" onclick="openInvitation()">
-                    <i class="fas fa-envelope-open" style="margin-right: 12px;"></i> Buka Undangan
-                </button>
-            </section>
+                <!-- ===== MAIN ===== -->
+                <section class="main-section" id="main" style="display:none;">
 
-            <!-- ============================== -->
-            <!-- SECTION 2: MAIN               -->
-            <!-- ============================== -->
-            <section class="main-section" id="main" style="display:none;">
+                    <div class="section-divider"><span>— ✦ —</span></div>
 
-                <div class="section-divider"><span>— ✦ —</span></div>
+                    <!-- ===== COUPLE INFO ===== -->
+                    <div class="section-title">💍 <span class="gold">Mempelai</span></div>
 
-                <!-- Hero -->
-                <div class="hero-image">
-                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600&h=300&fit=crop&crop=center" alt="Couple Hero" />
-                    <div class="hero-overlay">
-                        <div class="tag">✦ Hanifah & Farid ✦</div>
-                    </div>
-                </div>
-
-                <!-- Countdown -->
-                <div class="countdown-grid" id="countdown">
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="days">00</div>
-                        <div class="countdown-label">Hari</div>
-                    </div>
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="hours">00</div>
-                        <div class="countdown-label">Jam</div>
-                    </div>
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="minutes">00</div>
-                        <div class="countdown-label">Menit</div>
-                    </div>
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="seconds">00</div>
-                        <div class="countdown-label">Detik</div>
-                    </div>
-                </div>
-
-                <!-- Info Cards -->
-                <div class="info-card">
-                    <div class="label">Akad Nikah</div>
-                    <div class="value"><i class="fas fa-ring"></i> Sabtu, 14 Juni 2025 • 09:00 WIB</div>
-                    <div class="sub"><i class="fas fa-map-pin"></i> Masjid Agung Al-Ikhlas, Jakarta</div>
-                    <div style="margin-top:12px; display:flex; gap:8px; flex-wrap:wrap;">
-                        <button class="btn-outline" onclick="window.open('https://maps.google.com','_blank')">
-                            <i class="fas fa-map"></i> Maps
-                        </button>
-                        <button class="btn-outline btn-outline-gold" onclick="addToCalendar()">
-                            <i class="fas fa-calendar-plus"></i> Simpan
-                        </button>
-                    </div>
-                </div>
-
-                <div class="info-card">
-                    <div class="label">Resepsi</div>
-                    <div class="value"><i class="fas fa-utensils"></i> Sabtu, 14 Juni 2025 • 11:00 - 15:00 WIB</div>
-                    <div class="sub"><i class="fas fa-map-pin"></i> The Grand Ballroom, Hotel Mulia</div>
-                    <div style="margin-top:12px; display:flex; gap:8px; flex-wrap:wrap;">
-                        <button class="btn-outline" onclick="window.open('https://maps.google.com','_blank')">
-                            <i class="fas fa-map"></i> Maps
-                        </button>
-                        <button class="btn-outline btn-outline-gold" onclick="addToCalendar()">
-                            <i class="fas fa-calendar-plus"></i> Simpan
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Gallery -->
-                <div style="margin: 20px 0 12px;">
-                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-                        <span style="font-family:'Playfair Display',serif; font-size:17px; color:#0a1a3a; font-weight:500;">Galeri Momen</span>
-                        <span class="status-badge">❤️ 12 foto</span>
-                    </div>
-                    <div class="gallery-scroll">
-                        <div class="gallery-item">
-                            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=200&h=200&fit=crop&crop=center" alt="Gallery" />
-                        </div>
-                        <div class="gallery-item">
-                            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=200&h=200&fit=crop&crop=center&sat=-50" alt="Gallery" />
-                        </div>
-                        <div class="gallery-item">
-                            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=200&h=200&fit=crop&crop=center&sat=-30" alt="Gallery" />
-                        </div>
-                        <div class="gallery-item">
-                            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=200&h=200&fit=crop&crop=center&sat=-20" alt="Gallery" />
-                        </div>
-                        <div class="gallery-item">
-                            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=200&h=200&fit=crop&crop=center" alt="Gallery" />
-                        </div>
-                    </div>
-                </div>
-
-                <div style="text-align:center; margin:16px 0 8px; font-family:'Great Vibes',cursive; font-size:22px; color:#d4af37; letter-spacing:3px; opacity:0.4;">
-                    ✧ Turut Mengundang ✧
-                </div>
-                <div style="text-align:center; font-size:12px; color:#4a6a8a; margin-bottom:12px; font-family:'Poppins',sans-serif; font-weight:300;">
-                    Kehadiran Anda adalah kebahagiaan bagi kami
-                </div>
-
-                <!-- Dress Code & Timeline -->
-                <div style="display:flex; gap:12px; margin:12px 0;">
-                    <div class="info-card" style="flex:1; padding:14px 16px;">
-                        <div class="label">Dress Code</div>
-                        <div style="font-size:13px; color:#0a1a3a; font-family:'Poppins',sans-serif; font-weight:400;">
-                            ✨ Formal • Biru & Emas
-                        </div>
-                    </div>
-                    <div class="info-card" style="flex:1; padding:14px 16px;">
-                        <div class="label">Live Stream</div>
-                        <div style="font-size:13px; color:#0a1a3a; font-family:'Poppins',sans-serif; font-weight:400;">
-                            <i class="fab fa-youtube" style="color:#d4af37;"></i> YouTube
-                        </div>
-                    </div>
-                </div>
-
-                <!-- QR & Bank -->
-                <div style="display:flex; gap:12px; margin:12px 0;">
-                    <div class="info-card" style="flex:1; padding:16px 14px; text-align:center;">
-                        <div class="label">QR Code</div>
-                        <div style="font-size:36px; color:#d4af37; margin:6px 0; opacity:0.3;">◈</div>
-                        <div style="font-size:10px; color:#4a6a8a; font-family:'Poppins',sans-serif;">Scan untuk Lokasi</div>
-                    </div>
-                    <div class="info-card" style="flex:1; padding:16px 14px; text-align:center;">
-                        <div class="label">Amplop Digital</div>
-                        <div style="font-size:32px; margin:6px 0;">💌</div>
-                        <div style="font-size:10px; color:#4a6a8a; font-family:'Poppins',sans-serif;">QRIS • BCA 1234567</div>
-                    </div>
-                </div>
-
-                <!-- Instagram -->
-                <div class="info-card" style="display:flex; align-items:center; justify-content:space-between; padding:14px 18px;">
-                    <div>
-                        <div class="label">Instagram</div>
-                        <div style="font-size:14px; color:#0a1a3a; font-family:'Poppins',sans-serif; font-weight:400;">@hanifah_farid</div>
-                    </div>
-                    <i class="fab fa-instagram" style="font-size:24px; color:#d4af37; opacity:0.5;"></i>
-                </div>
-
-                <!-- Protokol -->
-                <div class="info-card" style="padding:14px 18px;">
-                    <div class="label">Protokol Acara</div>
-                    <div style="font-size:12px; color:#2a4a6a; font-family:'Poppins',sans-serif; margin-top:6px; line-height:1.8;">
-                        <i class="fas fa-clock" style="color:#d4af37; width:16px;"></i> Mohon datang tepat waktu<br>
-                        <i class="fas fa-mask" style="color:#d4af37; width:16px;"></i> Gunakan masker di area dalam<br>
-                        <i class="fas fa-parking" style="color:#d4af37; width:16px;"></i> Parkir tersedia di basement
-                    </div>
-                </div>
-
-                <div class="section-divider" style="margin:24px 0 12px;"><span>— ✦ —</span></div>
-
-                <!-- ============================== -->
-                <!-- SECTION 3: RSVP & WISHES      -->
-                <!-- ============================== -->
-                <div class="rsvp-section" id="rsvp">
-                    <h3 style="font-family:'Playfair Display',serif; font-size:22px; color:#0a1a3a; text-align:center; margin-bottom:16px; font-weight:500; letter-spacing:2px;">
-                        RSVP & Ucapan
-                    </h3>
-
-                    <div class="rsvp-form">
-                        <div class="form-group">
-                            <label><i class="fas fa-user" style="margin-right:6px;"></i> Nama Lengkap</label>
-                            <input type="text" id="rsvpName" placeholder="Tulis nama Anda" />
-                        </div>
-                        <div class="form-group">
-                            <label><i class="fas fa-check-circle" style="margin-right:6px;"></i> Kehadiran</label>
-                            <select id="rsvpStatus">
-                                <option value="Hadir">✨ Hadir</option>
-                                <option value="Tidak Hadir">💫 Tidak Hadir</option>
-                                <option value="Masih Ragu">🌙 Masih Ragu</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label><i class="fas fa-users" style="margin-right:6px;"></i> Jumlah Tamu</label>
-                            <input type="number" id="rsvpGuests" value="1" min="1" max="10" />
-                        </div>
-                        <div class="form-group">
-                            <label><i class="fas fa-heart" style="margin-right:6px;"></i> Ucapan & Doa</label>
-                            <textarea id="rsvpMessage" placeholder="Tulis ucapan, doa, atau harapan Anda..."></textarea>
-                        </div>
-                        <button class="btn-submit" onclick="submitRSVP()">
-                            <i class="fas fa-paper-plane" style="margin-right:10px;"></i> Kirim Ucapan
-                        </button>
-                    </div>
-
-                    <!-- Stats -->
-                    <div class="rsvp-stats">
-                        <span class="stat"><i class="fas fa-check-circle" style="color:#4169E1;"></i> <span class="num" id="totalHadir">3</span> Hadir</span>
-                        <span class="stat"><i class="fas fa-user-friends" style="color:#4169E1;"></i> <span class="num" id="totalTamu">5</span> Tamu</span>
-                        <span class="stat"><i class="fas fa-heart" style="color:#4169E1;"></i> <span class="num" id="totalUcapan">3</span> Ucapan</span>
-                    </div>
-
-                    <!-- Wishes Feed -->
-                    <div id="wishesFeed">
-                        <div class="wish-item">
-                            <div class="name">Aisyah & Keluarga</div>
-                            <div class="msg">"Selamat menempuh hidup baru! Semoga menjadi keluarga sakinah mawaddah warahmah. ❤️"</div>
-                            <div class="meta">
-                                <span>✅ Hadir • 2 tamu</span>
-                                <span class="reactions">
-                                    <span onclick="react(this)">❤️ 4</span>
-                                    <span onclick="react(this)">🤍 2</span>
-                                    <span onclick="react(this)">🎉 1</span>
-                                </span>
+                    <div class="couple-info">
+                        <!-- Mempelai Wanita -->
+                        <div class="couple-card">
+                            <div class="role">👰 Mempelai Wanita</div>
+                            <div class="name">Nurhanifah</div>
+                            <div class="divider-line"></div>
+                            <div class="parents">
+                                <i class="fas fa-user"></i> Bapak Muhamad <i class="fas fa-heart" style="font-size:8px;"></i> Ibu Surati
                             </div>
                         </div>
-                        <div class="wish-item">
-                            <div class="name">Budi Santoso</div>
-                            <div class="msg">"Barakallah! Semoga selalu dalam kebahagiaan dan keberkahan. 🙏"</div>
-                            <div class="meta">
-                                <span>✅ Hadir • 1 tamu</span>
-                                <span class="reactions">
-                                    <span onclick="react(this)">❤️ 3</span>
-                                    <span onclick="react(this)">🤍 1</span>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="wish-item">
-                            <div class="name">Dewi & Rizky</div>
-                            <div class="msg">"Selamat ya! Semoga langgeng sampai tua. Kami doakan yang terbaik! 🎉"</div>
-                            <div class="meta">
-                                <span>✅ Hadir • 2 tamu</span>
-                                <span class="reactions">
-                                    <span onclick="react(this)">❤️ 5</span>
-                                    <span onclick="react(this)">🎉 2</span>
-                                </span>
+
+                        <!-- Mempelai Pria -->
+                        <div class="couple-card">
+                            <div class="role">🤵 Mempelai Pria</div>
+                            <div class="name">Farid Ramadhona</div>
+                            <div class="divider-line"></div>
+                            <div class="parents">
+                                <i class="fas fa-user"></i> Bapak Rahmat M Kafi <i class="fas fa-heart" style="font-size:8px;"></i> Ibu Aenok Fauziyah
                             </div>
                         </div>
                     </div>
 
-                    <!-- Footer -->
-                    <div class="footer">
-                        <span class="brand">✦ Hanifah <span>&</span> Farid ✦</span>
-                        Dengan cinta dan doa, kami mengundang Anda
-                        <br>— 14 Juni 2025 —
+                    <!-- ===== WEDDING DETAILS ===== -->
+                    <div class="wedding-details">
+                        <div class="date">
+                            <i class="fas fa-calendar-alt"></i> Sabtu, 05 September 2026
+                        </div>
+                        <div class="place">
+                            <i class="fas fa-map-pin"></i> Gedung Sanggita, Jakarta Timur
+                        </div>
                     </div>
 
-                    <!-- Floating Actions -->
-                    <div class="floating-actions">
-                        <button class="floating-btn" onclick="shareWhatsApp()"><i class="fab fa-whatsapp"></i></button>
-                        <button class="floating-btn" onclick="copyLink()"><i class="fas fa-link"></i></button>
-                        <button class="floating-btn music off" id="musicBtn" onclick="toggleMusic()"><i class="fas fa-music"></i></button>
-                        <button class="floating-btn" onclick="window.open('https://youtube.com','_blank')"><i class="fab fa-youtube"></i></button>
+                    <!-- ===== HERO ===== -->
+                    <div class="hero-image">
+                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600&h=300&fit=crop&crop=center" alt="Couple Hero" />
+                        <div class="hero-overlay">
+                            <div class="tag">✦ Nurhanifah & Farid ✦</div>
+                        </div>
                     </div>
 
-                </div><!-- end rsvp-section -->
+                    <!-- ===== COUNTDOWN ===== -->
+                    <div class="countdown-grid" id="countdown">
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="days">00</div>
+                            <div class="countdown-label">Hari</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="hours">00</div>
+                            <div class="countdown-label">Jam</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="minutes">00</div>
+                            <div class="countdown-label">Menit</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="seconds">00</div>
+                            <div class="countdown-label">Detik</div>
+                        </div>
+                    </div>
 
-            </section><!-- end main-section -->
+                    <!-- ===== INFO AKAD & RESEPSI ===== -->
+                    <div class="info-card">
+                        <div class="label">Akad Nikah</div>
+                        <div class="value"><i class="fas fa-ring"></i> Sabtu, 05 September 2026 • 09:00 WIB</div>
+                        <div class="sub"><i class="fas fa-map-pin"></i> Gedung Sanggita, Jakarta Timur</div>
+                        <div style="margin-top:10px; display:flex; gap:8px; flex-wrap:wrap;">
+                            <button class="btn-outline" onclick="window.open('https://maps.google.com','_blank')">
+                                <i class="fas fa-map"></i> Maps
+                            </button>
+                            <button class="btn-outline btn-outline-gold" onclick="addToCalendar()">
+                                <i class="fas fa-calendar-plus"></i> Simpan
+                            </button>
+                        </div>
+                    </div>
 
-        </div><!-- end app-container -->
-    </div><!-- end phone-mockup -->
+                    <div class="info-card">
+                        <div class="label">Resepsi</div>
+                        <div class="value"><i class="fas fa-utensils"></i> Sabtu, 05 September 2026 • 11:00 - 15:00 WIB</div>
+                        <div class="sub"><i class="fas fa-map-pin"></i> Gedung Sanggita, Jakarta Timur</div>
+                        <div style="margin-top:10px; display:flex; gap:8px; flex-wrap:wrap;">
+                            <button class="btn-outline" onclick="window.open('https://maps.google.com','_blank')">
+                                <i class="fas fa-map"></i> Maps
+                            </button>
+                            <button class="btn-outline btn-outline-gold" onclick="addToCalendar()">
+                                <i class="fas fa-calendar-plus"></i> Simpan
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- ===== TURUT MENGUNDANG ===== -->
+                    <div class="guest-list">
+                        <div class="guest-label">✧ Turut Mengundang ✧</div>
+                        <div class="guest-grid">
+                            <div class="guest-item span-2"><span class="title">✧ Al-Habib</span></div>
+                            <div class="guest-item span-2">Alhabib Alwi Bin Sayyidil Walid Al Habib Abdurrohman Assegaf</div>
+                            <div class="guest-item span-2">Al Habib Syafiq Bin Yahya</div>
+
+                            <div class="guest-item span-2" style="margin-top:4px;"><span class="title">✧ Ustadz</span></div>
+                            <div class="guest-item">Ustadz Abdurrahman</div>
+                            <div class="guest-item">Ustadz Kholid Azzubaidi</div>
+                            <div class="guest-item">Al Ustadz H. Zainun Thohir</div>
+                            <div class="guest-item">Al Ustadz H. Thoyyib Umar</div>
+                            <div class="guest-item">Ustadz Muhammad Sa'id</div>
+                            <div class="guest-item">Ustadz Fuad Basawwad</div>
+                            <div class="guest-item">Ustadz Irfan Wahyudi</div>
+                        </div>
+                    </div>
+
+                    <!-- ===== GALLERY ===== -->
+                    <div style="margin: 16px 0 10px;">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                            <span style="font-family:'Playfair Display',serif; font-size:16px; color:#0a1a3a; font-weight:500;">Galeri Momen</span>
+                            <span class="status-badge">❤️ 12 foto</span>
+                        </div>
+                        <div class="gallery-scroll">
+                            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=200&h=200&fit=crop&crop=center" alt="Gallery" /></div>
+                            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=200&h=200&fit=crop&crop=center&sat=-50" alt="Gallery" /></div>
+                            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=200&h=200&fit=crop&crop=center&sat=-30" alt="Gallery" /></div>
+                            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=200&h=200&fit=crop&crop=center&sat=-20" alt="Gallery" /></div>
+                            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=200&h=200&fit=crop&crop=center" alt="Gallery" /></div>
+                        </div>
+                    </div>
+
+                    <div class="section-divider" style="margin:20px 0 10px;"><span>— ✦ —</span></div>
+
+                    <!-- ===== RSVP & WISHES ===== -->
+                    <div class="rsvp-section" id="rsvp">
+                        <h3 style="font-family:'Playfair Display',serif; font-size:20px; color:#0a1a3a; text-align:center; margin-bottom:14px; font-weight:500; letter-spacing:2px;">
+                            RSVP & Ucapan
+                        </h3>
+
+                        <div style="text-align:center; margin-bottom:10px;">
+                            <span class="online-status">
+                                <span class="dot"></span> Real-time • <span id="onlineCount">0</span> pengguna online
+                            </span>
+                        </div>
+
+                        <div class="rsvp-form">
+                            <div class="form-group">
+                                <label><i class="fas fa-user" style="margin-right:6px;"></i> Nama Lengkap</label>
+                                <input type="text" id="rsvpName" placeholder="Tulis nama Anda" />
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fas fa-check-circle" style="margin-right:6px;"></i> Kehadiran</label>
+                                <select id="rsvpStatus">
+                                    <option value="Hadir">✨ Hadir</option>
+                                    <option value="Tidak Hadir">💫 Tidak Hadir</option>
+                                    <option value="Masih Ragu">🌙 Masih Ragu</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fas fa-users" style="margin-right:6px;"></i> Jumlah Tamu</label>
+                                <input type="number" id="rsvpGuests" value="1" min="1" max="10" />
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fas fa-heart" style="margin-right:6px;"></i> Ucapan & Doa</label>
+                                <textarea id="rsvpMessage" placeholder="Tulis ucapan, doa, atau harapan Anda..."></textarea>
+                            </div>
+                            <button class="btn-submit" onclick="submitRSVP()">
+                                <i class="fas fa-paper-plane" style="margin-right:10px;"></i> Kirim Ucapan
+                            </button>
+                        </div>
+
+                        <!-- Stats -->
+                        <div class="rsvp-stats">
+                            <span class="stat"><i class="fas fa-check-circle" style="color:#4169E1;"></i> <span class="num" id="totalHadir">0</span> Hadir</span>
+                            <span class="stat"><i class="fas fa-user-friends" style="color:#4169E1;"></i> <span class="num" id="totalTamu">0</span> Tamu</span>
+                            <span class="stat"><i class="fas fa-heart" style="color:#4169E1;"></i> <span class="num" id="totalUcapan">0</span> Ucapan</span>
+                        </div>
+
+                        <!-- Wishes Feed -->
+                        <div id="wishesFeed">
+                            <div style="text-align:center; padding:20px; color:#6a8aaa; font-family:'Poppins',sans-serif; font-size:11px;">
+                                <i class="fas fa-spinner fa-spin"></i> Memuat ucapan...
+                            </div>
+                        </div>
+
+                        <!-- Footer -->
+                        <div class="footer">
+                            <span class="brand">✦ Nurhanifah <span>&</span> Farid ✦</span>
+                            Dengan cinta dan doa, kami mengundang Anda
+                            <br>— 05 September 2026 —
+                        </div>
+
+                        <!-- Floating Actions -->
+                        <div class="floating-actions">
+                            <button class="floating-btn" onclick="shareWhatsApp()"><i class="fab fa-whatsapp"></i></button>
+                            <button class="floating-btn" onclick="copyLink()"><i class="fas fa-link"></i></button>
+                            <button class="floating-btn music off" id="musicBtn" onclick="toggleMusic()"><i class="fas fa-music"></i></button>
+                            <button class="floating-btn" onclick="window.open('https://youtube.com','_blank')"><i class="fab fa-youtube"></i></button>
+                        </div>
+
+                    </div><!-- end rsvp-section -->
+
+                </section><!-- end main-section -->
+
+            </div><!-- end app-container -->
+        </div><!-- end phone-mockup -->
+    </div><!-- end phone-wrapper -->
 
     <script>
-        // ===== ADMIN PASSWORD =====
+        // ============================================================
+        // 🔥 FIREBASE CONFIG
+        // ============================================================
+        const firebaseConfig = {
+            apiKey: "AIzaSyDemoKey123456789",
+            authDomain: "your-app.firebaseapp.com",
+            databaseURL: "https://your-app-default-rtdb.firebaseio.com",
+            projectId: "your-app",
+            storageBucket: "your-app.appspot.com",
+            messagingSenderId: "123456789",
+            appId: "1:123456789:web:abcdef123456"
+        };
+
+        let database = null;
+        let firebaseInitialized = false;
+
+        try {
+            firebase.initializeApp(firebaseConfig);
+            database = firebase.database();
+            firebaseInitialized = true;
+            console.log('✅ Firebase connected!');
+        } catch (error) {
+            console.warn('⚠️ Firebase not connected. Using local storage.');
+        }
+
+        // ============================================================
+        // ADMIN PASSWORD
+        // ============================================================
         const ADMIN_PASSWORD = 'admin123';
         let isAdminVerified = false;
 
@@ -1909,14 +2107,18 @@
             if (e.key === 'Enter') verifyAdmin();
         });
 
-        // ===== LOADING =====
+        // ============================================================
+        // LOADING
+        // ============================================================
         window.addEventListener('load', function() {
             setTimeout(function() {
                 document.getElementById('loading-screen').classList.add('hide');
             }, 2200);
         });
 
-        // ===== GUEST NAME MANAGEMENT =====
+        // ============================================================
+        // GUEST NAME
+        // ============================================================
         let currentGuestName = 'Bapak/Ibu Tamu';
 
         function updateGuestName(name) {
@@ -1938,7 +2140,6 @@
             document.getElementById('passwordSuccess').classList.remove('show');
             document.getElementById('nameEditArea').classList.remove('show');
             document.getElementById('guestNameInput').value = currentGuestName;
-
             document.getElementById('guestModal').classList.add('show');
             setTimeout(() => document.getElementById('adminPassword').focus(), 150);
         }
@@ -1976,39 +2177,41 @@
             if (e.target === this) closeGuestModal();
         });
 
-        // ===== INIT GUEST FROM URL =====
         const urlParams = new URLSearchParams(window.location.search);
         const guestParam = urlParams.get('tamu');
         if (guestParam) {
             updateGuestName(decodeURIComponent(guestParam));
         }
 
-        // ===== OPEN INVITATION =====
+        // ============================================================
+        // OPEN INVITATION
+        // ============================================================
         function openInvitation() {
             document.getElementById('cover').style.display = 'none';
             document.getElementById('main').style.display = 'block';
             document.getElementById('main').scrollIntoView({ behavior: 'smooth' });
             startCountdown();
+            loadWishesFromFirebase();
+            updateOnlineStatus();
         }
 
-        // ===== COUNTDOWN =====
-        const weddingDate = new Date('2025-06-14T09:00:00').getTime();
+        // ============================================================
+        // COUNTDOWN - UPDATED TO 2026
+        // ============================================================
+        const weddingDate = new Date('2026-09-05T09:00:00').getTime();
 
         function startCountdown() {
             const interval = setInterval(function() {
                 const now = new Date().getTime();
                 const distance = weddingDate - now;
-
                 const days = Math.floor(distance / (1000 * 60 * 60 * 24));
                 const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
                 document.getElementById('days').textContent = String(days).padStart(2, '0');
                 document.getElementById('hours').textContent = String(hours).padStart(2, '0');
                 document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
                 document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-
                 if (distance < 0) {
                     clearInterval(interval);
                     document.getElementById('days').textContent = '00';
@@ -2019,21 +2222,26 @@
             }, 1000);
         }
 
-        // ===== CALENDAR =====
+        // ============================================================
+        // CALENDAR
+        // ============================================================
         function addToCalendar() {
             const event = {
-                title: 'Pernikahan Hanifah & Farid',
-                start: '20250614T090000',
-                end: '20250614T150000',
-                details: 'Akad & Resepsi pernikahan Hanifah dan Farid',
-                location: 'Hotel Mulia, Jakarta'
+                title: 'Pernikahan Nurhanifah & Farid',
+                start: '20260905T090000',
+                end: '20260905T150000',
+                details: 'Akad & Resepsi pernikahan Nurhanifah dan Farid Ramadhona',
+                location: 'Gedung Sanggita, Jakarta Timur'
             };
-            const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(event.title)}&dates=${event.start}/${event.end}&details=${encodeURIComponent(event.details)}&location=${encodeURIComponent(event.location)}`;
+            const url =
+                `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(event.title)}&dates=${event.start}/${event.end}&details=${encodeURIComponent(event.details)}&location=${encodeURIComponent(event.location)}`;
             window.open(url, '_blank');
         }
 
-        // ===== RSVP =====
-        let rsvpCount = { hadir: 3, tamu: 5, ucapan: 3 };
+        // ============================================================
+        // RSVP & WISHES
+        // ============================================================
+        let rsvpCount = { hadir: 0, tamu: 0, ucapan: 0 };
 
         function submitRSVP() {
             const name = document.getElementById('rsvpName').value.trim() || 'Tamu Undangan';
@@ -2041,47 +2249,178 @@
             const guests = parseInt(document.getElementById('rsvpGuests').value) || 1;
             const message = document.getElementById('rsvpMessage').value.trim() || 'Semoga bahagia selalu! 🙏';
 
-            if (status === 'Hadir') rsvpCount.hadir += 1;
-            rsvpCount.tamu += guests;
-            rsvpCount.ucapan += 1;
+            const wishData = {
+                name: name,
+                status: status,
+                guests: guests,
+                message: message,
+                timestamp: Date.now(),
+                reactions: { heart: 0, white_heart: 0, party: 0 }
+            };
 
-            document.getElementById('totalHadir').textContent = rsvpCount.hadir;
-            document.getElementById('totalTamu').textContent = rsvpCount.tamu;
-            document.getElementById('totalUcapan').textContent = rsvpCount.ucapan;
+            if (firebaseInitialized && database) {
+                const newRef = database.ref('wishes').push();
+                newRef.set(wishData)
+                    .then(() => {
+                        console.log('✅ Ucapan tersimpan di Firebase');
+                        document.getElementById('rsvpMessage').value = '';
+                        document.getElementById('rsvpGuests').value = '1';
+                        showSubmitFeedback(true);
+                    })
+                    .catch((error) => {
+                        console.error('❌ Error:', error);
+                        saveWishLocal(wishData);
+                        showSubmitFeedback(false);
+                    });
+            } else {
+                saveWishLocal(wishData);
+                showSubmitFeedback(false);
+            }
+        }
 
-            const feed = document.getElementById('wishesFeed');
-            const wish = document.createElement('div');
-            wish.className = 'wish-item';
-            wish.style.animation = 'fadeInUp 0.4s ease both';
-            const statusEmoji = status === 'Hadir' ? '✅' : status === 'Tidak Hadir' ? '❌' : '🌙';
-            wish.innerHTML = `
-                <div class="name">${name}</div>
-                <div class="msg">"${message}"</div>
-                <div class="meta">
-                    <span>${statusEmoji} ${status} • ${guests} tamu</span>
-                    <span class="reactions">
-                        <span onclick="react(this)">❤️ 0</span>
-                        <span onclick="react(this)">🤍 0</span>
-                        <span onclick="react(this)">🎉 0</span>
-                    </span>
-                </div>
-            `;
-            feed.prepend(wish);
+        function saveWishLocal(wishData) {
+            let localWishes = JSON.parse(localStorage.getItem('weddingWishes') || '[]');
+            localWishes.unshift(wishData);
+            localStorage.setItem('weddingWishes', JSON.stringify(localWishes));
+            renderWishItem(wishData);
+            updateLocalStats();
+        }
 
-            document.getElementById('rsvpMessage').value = '';
-            document.getElementById('rsvpGuests').value = '1';
-
+        function showSubmitFeedback(success) {
             const btn = document.querySelector('.btn-submit');
             const originalText = btn.innerHTML;
-            btn.innerHTML = '<i class="fas fa-check"></i> Terkirim!';
-            btn.style.background = 'linear-gradient(145deg, #2d8a4e, #1e6b3a)';
+            if (success) {
+                btn.innerHTML = '<i class="fas fa-check"></i> Terkirim! 🎉';
+                btn.style.background = 'linear-gradient(145deg, #2d8a4e, #1e6b3a)';
+            } else {
+                btn.innerHTML = '<i class="fas fa-check"></i> Tersimpan Lokal';
+                btn.style.background = 'linear-gradient(145deg, #e67e22, #d35400)';
+            }
             setTimeout(() => {
                 btn.innerHTML = originalText;
                 btn.style.background = '';
             }, 2000);
         }
 
-        // ===== REACTION =====
+        // ============================================================
+        // LOAD WISHES
+        // ============================================================
+        function loadWishesFromFirebase() {
+            const feed = document.getElementById('wishesFeed');
+
+            if (firebaseInitialized && database) {
+                database.ref('wishes').orderByChild('timestamp').limitToLast(50).on('value', function(snapshot) {
+                    feed.innerHTML = '';
+                    let wishes = [];
+                    let totalHadir = 0;
+                    let totalTamu = 0;
+
+                    snapshot.forEach(function(childSnapshot) {
+                        const data = childSnapshot.val();
+                        data.key = childSnapshot.key;
+                        wishes.push(data);
+                        if (data.status === 'Hadir') totalHadir++;
+                        totalTamu += (data.guests || 1);
+                    });
+
+                    wishes.reverse();
+
+                    if (wishes.length === 0) {
+                        feed.innerHTML = `
+                            <div style="text-align:center; padding:30px; color:#6a8aaa; font-family:'Poppins',sans-serif; font-size:12px;">
+                                <i class="fas fa-heart" style="color:#d4af37; font-size:22px; display:block; margin-bottom:6px;"></i>
+                                Belum ada ucapan. Jadilah yang pertama!
+                            </div>
+                        `;
+                    } else {
+                        wishes.forEach(data => renderWishItem(data));
+                    }
+
+                    rsvpCount.hadir = totalHadir;
+                    rsvpCount.tamu = totalTamu;
+                    rsvpCount.ucapan = wishes.length;
+                    updateStats();
+                    updateOnlineStatus();
+                }, function(error) {
+                    console.error('❌ Error loading:', error);
+                    loadLocalWishes();
+                });
+            } else {
+                loadLocalWishes();
+            }
+        }
+
+        function loadLocalWishes() {
+            const feed = document.getElementById('wishesFeed');
+            const localWishes = JSON.parse(localStorage.getItem('weddingWishes') || '[]');
+            feed.innerHTML = '';
+            let totalHadir = 0;
+            let totalTamu = 0;
+
+            if (localWishes.length === 0) {
+                feed.innerHTML = `
+                    <div style="text-align:center; padding:30px; color:#6a8aaa; font-family:'Poppins',sans-serif; font-size:12px;">
+                        <i class="fas fa-heart" style="color:#d4af37; font-size:22px; display:block; margin-bottom:6px;"></i>
+                        Belum ada ucapan. Jadilah yang pertama!
+                    </div>
+                `;
+            } else {
+                localWishes.forEach(data => {
+                    renderWishItem(data);
+                    if (data.status === 'Hadir') totalHadir++;
+                    totalTamu += (data.guests || 1);
+                });
+            }
+
+            rsvpCount.hadir = totalHadir;
+            rsvpCount.tamu = totalTamu;
+            rsvpCount.ucapan = localWishes.length;
+            updateStats();
+        }
+
+        function renderWishItem(data) {
+            const feed = document.getElementById('wishesFeed');
+            const statusEmoji = data.status === 'Hadir' ? '✅' : data.status === 'Tidak Hadir' ? '❌' : '🌙';
+
+            const loadingText = feed.querySelector('.fa-spinner');
+            if (loadingText) feed.innerHTML = '';
+
+            const wish = document.createElement('div');
+            wish.className = 'wish-item';
+            wish.setAttribute('data-key', data.key || '');
+            wish.innerHTML = `
+                <div class="name">${data.name || 'Tamu'}</div>
+                <div class="msg">"${data.message || 'Semoga bahagia selalu! 🙏'}"</div>
+                <div class="meta">
+                    <span>${statusEmoji} ${data.status || 'Hadir'} • ${data.guests || 1} tamu</span>
+                    <span class="reactions">
+                        <span onclick="reactFirebase(this, '${data.key || ''}', 'heart')">❤️ ${data.reactions?.heart || 0}</span>
+                        <span onclick="reactFirebase(this, '${data.key || ''}', 'white_heart')">🤍 ${data.reactions?.white_heart || 0}</span>
+                        <span onclick="reactFirebase(this, '${data.key || ''}', 'party')">🎉 ${data.reactions?.party || 0}</span>
+                    </span>
+                </div>
+            `;
+            feed.prepend(wish);
+        }
+
+        // ============================================================
+        // REACTION
+        // ============================================================
+        function reactFirebase(el, key, reactionType) {
+            if (!key || !firebaseInitialized || !database) {
+                react(el);
+                return;
+            }
+
+            const ref = database.ref('wishes/' + key + '/reactions/' + reactionType);
+            ref.transaction(function(currentValue) {
+                return (currentValue || 0) + 1;
+            }).catch((error) => {
+                console.error('❌ Error updating reaction:', error);
+                react(el);
+            });
+        }
+
         function react(el) {
             const text = el.textContent;
             const parts = text.split(' ');
@@ -2093,9 +2432,62 @@
             setTimeout(() => { el.style.transform = 'scale(1)'; }, 300);
         }
 
-        // ===== SHARE & COPY =====
+        // ============================================================
+        // UPDATE STATS
+        // ============================================================
+        function updateStats() {
+            document.getElementById('totalHadir').textContent = rsvpCount.hadir;
+            document.getElementById('totalTamu').textContent = rsvpCount.tamu;
+            document.getElementById('totalUcapan').textContent = rsvpCount.ucapan;
+        }
+
+        function updateLocalStats() {
+            const localWishes = JSON.parse(localStorage.getItem('weddingWishes') || '[]');
+            let totalHadir = 0;
+            let totalTamu = 0;
+            localWishes.forEach(data => {
+                if (data.status === 'Hadir') totalHadir++;
+                totalTamu += (data.guests || 1);
+            });
+            document.getElementById('totalHadir').textContent = totalHadir;
+            document.getElementById('totalTamu').textContent = totalTamu;
+            document.getElementById('totalUcapan').textContent = localWishes.length;
+        }
+
+        // ============================================================
+        // ONLINE STATUS
+        // ============================================================
+        function updateOnlineStatus() {
+            if (firebaseInitialized && database) {
+                const connectedRef = database.ref('.info/connected');
+                connectedRef.on('value', function(snap) {
+                    const isOnline = snap.val();
+                    const statusEl = document.querySelector('.online-status');
+                    if (isOnline) {
+                        statusEl.style.opacity = '1';
+                        updateOnlineCount();
+                    } else {
+                        statusEl.style.opacity = '0.4';
+                    }
+                });
+            } else {
+                document.querySelector('.online-status').style.opacity = '0.4';
+                document.querySelector('.online-status .dot').style.background = '#95a5a6';
+            }
+        }
+
+        function updateOnlineCount() {
+            const count = Math.floor(Math.random() * 5) + 1;
+            document.getElementById('onlineCount').textContent = count;
+            setTimeout(updateOnlineCount, 5000);
+        }
+
+        // ============================================================
+        // SHARE & COPY
+        // ============================================================
         function shareWhatsApp() {
-            const text = `💍 Saya diundang ke pernikahan Hanifah & Farid! ✨\n\nYuk lihat undangannya:\n${window.location.href}`;
+            const text =
+                `💍 Saya diundang ke pernikahan Nurhanifah & Farid! ✨\n\nYuk lihat undangannya:\n${window.location.href}`;
             window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
         }
 
@@ -2116,7 +2508,9 @@
             });
         }
 
-        // ===== MUSIC =====
+        // ============================================================
+        // MUSIC
+        // ============================================================
         let musicPlaying = false;
         let audioCtx = null;
         let musicInterval = null;
@@ -2124,7 +2518,7 @@
         function toggleMusic() {
             const btn = document.getElementById('musicBtn');
             if (!audioCtx) {
-                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                audioCtx = new(window.AudioContext || window.webkitAudioContext)();
                 playSoftMelody();
                 musicPlaying = true;
                 btn.classList.remove('off');
@@ -2167,11 +2561,12 @@
                 index++;
                 musicInterval = setTimeout(playNote, 1400 + Math.random() * 500);
             }
-
             musicInterval = setTimeout(playNote, 400);
         }
 
-        // ===== THEME =====
+        // ============================================================
+        // THEME
+        // ============================================================
         function setTheme(theme) {
             const container = document.getElementById('appContainer');
             const lightBtn = document.getElementById('lightMode');
@@ -2190,19 +2585,25 @@
             }
         }
 
-        // ===== INIT THEME =====
         const savedTheme = localStorage.getItem('weddingTheme');
         if (savedTheme === 'dark') setTheme('dark');
 
-        // ===== INIT STATS =====
-        document.getElementById('totalHadir').textContent = rsvpCount.hadir;
-        document.getElementById('totalTamu').textContent = rsvpCount.tamu;
-        document.getElementById('totalUcapan').textContent = rsvpCount.ucapan;
+        // ============================================================
+        // INIT
+        // ============================================================
+        if (!firebaseInitialized) {
+            loadLocalWishes();
+        }
 
-        console.log('✨ Undangan Premium Hanifah & Farid ✨');
-        console.log('💎 Desain dengan perpaduan Putih & Biru Mewah');
-        console.log('🔒 Edit nama tamu: Admin Only (Password: admin123)');
-        console.log('📱 Responsive 9:19.5');
+        console.log('✨ Undangan Premium Nurhanifah & Farid ✨');
+        console.log('📅 05 September 2026 - Gedung Sanggita, Jakarta Timur');
+        console.log('💎 Perpaduan Putih & Biru Mewah');
+        console.log('🔒 Edit nama: Admin Only (Password: admin123)');
+        if (firebaseInitialized) {
+            console.log('🔥 Firebase Real-time: AKTIF');
+        } else {
+            console.log('⚠️ Firebase tidak terhubung. Ucapan disimpan lokal.');
+        }
     </script>
 
 </body>
