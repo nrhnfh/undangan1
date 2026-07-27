@@ -1,0 +1,2209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Hanifah & Farid - Premium Wedding Invitation</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Poppins:wght@200;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0e1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            padding: 20px;
+            background-image: 
+                radial-gradient(ellipse at 50% 0%, #0f1a3a 0%, #0a0e1a 70%),
+                radial-gradient(ellipse at 80% 80%, #1a2a5a 0%, transparent 50%);
+        }
+
+        /* ===== MOCKUP PHONE ===== */
+        .phone-mockup {
+            width: 100%;
+            max-width: 390px;
+            height: 780px;
+            background: linear-gradient(170deg, #f0f4f8, #e8edf5);
+            border-radius: 48px;
+            overflow: hidden;
+            position: relative;
+            box-shadow:
+                0 40px 100px rgba(0, 0, 0, 0.8),
+                0 0 0 2px rgba(173, 216, 230, 0.15),
+                0 0 60px rgba(100, 149, 237, 0.05),
+                inset 0 0 60px rgba(173, 216, 230, 0.03);
+            transition: all 0.3s ease;
+        }
+
+        /* ===== SCROLL CONTAINER ===== */
+        .app-container {
+            height: 100%;
+            overflow-y: auto;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            padding: 0 20px 20px;
+            position: relative;
+            background: linear-gradient(170deg, #f0f4f8, #e8edf5);
+            background-image:
+                radial-gradient(ellipse at 20% 0%, rgba(100, 149, 237, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 100%, rgba(173, 216, 230, 0.05) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(212, 175, 55, 0.02) 0%, transparent 70%);
+            scrollbar-width: thin;
+            scrollbar-color: rgba(100, 149, 237, 0.3) transparent;
+        }
+
+        .app-container::-webkit-scrollbar {
+            width: 3px;
+        }
+        .app-container::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .app-container::-webkit-scrollbar-thumb {
+            background: rgba(100, 149, 237, 0.3);
+            border-radius: 10px;
+        }
+
+        /* ===== LOADING SCREEN ===== */
+        #loading-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(160deg, #f0f4f8, #dce4ed);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 1s ease, visibility 1s ease;
+        }
+
+        #loading-screen.hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-ring {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 2px solid rgba(100, 149, 237, 0.08);
+            border-top: 2px solid #6495ED;
+            border-right: 2px solid #4169E1;
+            animation: spin 0.8s cubic-bezier(0.6, 0, 0.4, 1) infinite;
+            position: relative;
+            box-shadow: 0 0 40px rgba(100, 149, 237, 0.05);
+        }
+
+        .loader-ring::before {
+            content: '✦';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20px;
+            color: #d4af37;
+            opacity: 0.3;
+        }
+
+        .loader-ring::after {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            right: 8px;
+            bottom: 8px;
+            border-radius: 50%;
+            border: 1px solid rgba(100, 149, 237, 0.04);
+            border-bottom: 1px solid #4169E1;
+            animation: spin 1.2s cubic-bezier(0.6, 0, 0.4, 1) infinite reverse;
+        }
+
+        .loader-text {
+            margin-top: 28px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            letter-spacing: 6px;
+            color: #4169E1;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+
+        .loader-text span {
+            display: inline-block;
+            animation: pulseText 1.6s ease-in-out infinite;
+        }
+        .loader-text span:nth-child(2) { animation-delay: 0.1s; }
+        .loader-text span:nth-child(3) { animation-delay: 0.2s; }
+        .loader-text span:nth-child(4) { animation-delay: 0.3s; }
+        .loader-text span:nth-child(5) { animation-delay: 0.4s; }
+        .loader-text span:nth-child(6) { animation-delay: 0.5s; }
+        .loader-text span:nth-child(7) { animation-delay: 0.6s; }
+        .loader-text span:nth-child(8) { animation-delay: 0.7s; }
+        .loader-text span:nth-child(9) { animation-delay: 0.8s; }
+        .loader-text span:nth-child(10) { animation-delay: 0.9s; }
+        .loader-text span:nth-child(11) { animation-delay: 1.0s; }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes pulseText {
+            0%, 100% { opacity: 0.2; transform: scale(0.95); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+
+        /* ===== WATERCOLOR FLORAL DECOR ===== */
+        .floral-decor {
+            position: absolute;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.25;
+        }
+
+        .floral-decor-1 {
+            top: -20px;
+            left: -20px;
+            width: 180px;
+            height: 180px;
+            background:
+                radial-gradient(circle at 30% 30%, rgba(100, 149, 237, 0.12) 0%, transparent 60%),
+                radial-gradient(circle at 70% 70%, rgba(212, 175, 55, 0.04) 0%, transparent 50%);
+            border-radius: 50%;
+        }
+
+        .floral-decor-1::before {
+            content: '❀';
+            position: absolute;
+            top: 20px;
+            left: 25px;
+            font-size: 52px;
+            color: #6495ED;
+            opacity: 0.2;
+            transform: rotate(-10deg);
+        }
+
+        .floral-decor-1::after {
+            content: '✦';
+            position: absolute;
+            bottom: 20px;
+            right: 15px;
+            font-size: 32px;
+            color: #d4af37;
+            opacity: 0.12;
+            transform: rotate(15deg);
+        }
+
+        .floral-decor-2 {
+            bottom: -20px;
+            right: -20px;
+            width: 200px;
+            height: 200px;
+            background:
+                radial-gradient(circle at 70% 70%, rgba(100, 149, 237, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 30% 30%, rgba(212, 175, 55, 0.03) 0%, transparent 40%);
+            border-radius: 50%;
+        }
+
+        .floral-decor-2::before {
+            content: '✿';
+            position: absolute;
+            bottom: 30px;
+            right: 25px;
+            font-size: 60px;
+            color: #6495ED;
+            opacity: 0.12;
+            transform: rotate(20deg);
+        }
+
+        .floral-decor-2::after {
+            content: '❋';
+            position: absolute;
+            top: 15px;
+            left: 10px;
+            font-size: 44px;
+            color: #d4af37;
+            opacity: 0.08;
+            transform: rotate(-15deg);
+        }
+
+        /* ===== GLASSMORPHISM ===== */
+        .glass {
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.04);
+        }
+
+        .glass-dark {
+            background: rgba(10, 14, 26, 0.4);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        /* ===== SECTION 1: COVER ===== */
+        .cover-section {
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 50px 24px;
+            position: relative;
+            background: linear-gradient(170deg, #f0f4f8 0%, #e4eaf2 40%, #dce4ed 100%);
+            border-radius: 0 0 48px 48px;
+            margin: 0 -20px 0 -20px;
+            padding-left: 24px;
+            padding-right: 24px;
+        }
+
+        .cover-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(ellipse at 20% 10%, rgba(100, 149, 237, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 90%, rgba(173, 216, 230, 0.05) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(212, 175, 55, 0.02) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cover-section .floral-decor-1 {
+            opacity: 0.35;
+        }
+        .cover-section .floral-decor-2 {
+            opacity: 0.3;
+        }
+
+        .cover-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #dce4ed, #c8d2e0);
+            margin-bottom: 24px;
+            position: relative;
+            box-shadow:
+                0 30px 80px rgba(100, 149, 237, 0.08),
+                0 0 0 4px rgba(100, 149, 237, 0.1),
+                0 0 0 8px rgba(100, 149, 237, 0.03);
+            overflow: hidden;
+            animation: fadeInUp 1.2s ease both;
+        }
+
+        .cover-photo::after {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: -6px;
+            right: -6px;
+            bottom: -6px;
+            border-radius: 50%;
+            border: 1px solid rgba(212, 175, 55, 0.12);
+        }
+
+        .cover-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cover-badge {
+            display: inline-block;
+            padding: 4px 18px;
+            border-radius: 50px;
+            background: rgba(100, 149, 237, 0.06);
+            border: 1px solid rgba(100, 149, 237, 0.1);
+            font-family: 'Poppins', sans-serif;
+            font-size: 9px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #4169E1;
+            margin-bottom: 12px;
+            animation: fadeInUp 1.2s ease 0.05s both;
+        }
+
+        .cover-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 20px;
+            color: #4169E1;
+            letter-spacing: 2px;
+            margin-bottom: 2px;
+            animation: fadeInUp 1.2s ease 0.1s both;
+        }
+
+        .cover-couple {
+            font-family: 'Playfair Display', serif;
+            font-size: 38px;
+            font-weight: 600;
+            color: #0a1a3a;
+            letter-spacing: 3px;
+            line-height: 1.1;
+            margin-bottom: 4px;
+            animation: fadeInUp 1.2s ease 0.15s both;
+        }
+
+        .cover-couple .ampersand {
+            font-family: 'Great Vibes', cursive;
+            font-size: 32px;
+            color: #d4af37;
+            display: inline-block;
+            margin: 0 8px;
+            text-shadow: 0 0 40px rgba(212, 175, 55, 0.08);
+        }
+
+        .cover-sub {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 15px;
+            font-weight: 400;
+            color: #4a6a8a;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            animation: fadeInUp 1.2s ease 0.2s both;
+        }
+
+        .cover-divider {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+            margin: 0 auto 18px;
+            opacity: 0.3;
+            animation: fadeInUp 1.2s ease 0.25s both;
+        }
+
+        .cover-guest {
+            font-family: 'Poppins', sans-serif;
+            font-size: 12px;
+            font-weight: 300;
+            color: #4a6a8a;
+            letter-spacing: 3px;
+            margin-bottom: 2px;
+            animation: fadeInUp 1.2s ease 0.3s both;
+        }
+
+        .cover-guest-name-wrapper {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 8px;
+            animation: fadeInUp 1.2s ease 0.35s both;
+        }
+
+        .cover-guest-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 30px;
+            font-weight: 500;
+            color: #0a1a3a;
+            position: relative;
+            padding: 0 10px;
+        }
+
+        .cover-guest-name::before,
+        .cover-guest-name::after {
+            content: '✦';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 12px;
+            color: #d4af37;
+            opacity: 0.3;
+        }
+        .cover-guest-name::before { left: -20px; }
+        .cover-guest-name::after { right: -20px; }
+
+        .admin-edit-area {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 2px;
+            animation: fadeInUp 1.2s ease 0.4s both;
+        }
+
+        .admin-edit-area .edit-hint {
+            font-family: 'Poppins', sans-serif;
+            font-size: 9px;
+            color: #4169E1;
+            opacity: 0.3;
+            letter-spacing: 1px;
+            font-weight: 300;
+        }
+
+        .admin-edit-area .admin-badge {
+            font-family: 'Poppins', sans-serif;
+            font-size: 7px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #d4af37;
+            background: rgba(212, 175, 55, 0.06);
+            padding: 2px 8px;
+            border-radius: 50px;
+            border: 1px solid rgba(212, 175, 55, 0.04);
+            opacity: 0.3;
+        }
+
+        .btn-edit-guest {
+            background: transparent;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 10px;
+            color: #4169E1;
+            cursor: pointer;
+            opacity: 0.2;
+            transition: all 0.3s ease;
+            padding: 4px 8px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .btn-edit-guest:hover {
+            opacity: 0.8;
+            background: rgba(100, 149, 237, 0.04);
+        }
+
+        .btn-primary {
+            background: linear-gradient(145deg, #4169E1, #3158C8, #1a4aaf);
+            color: #fff;
+            border: none;
+            padding: 18px 52px;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow:
+                0 12px 40px rgba(65, 105, 225, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1.2s ease 0.45s both;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.05) 50%, transparent 70%);
+            animation: shimmer 4s ease-in-out infinite;
+            transform: rotate(25deg);
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) rotate(25deg); }
+            100% { transform: translateX(100%) rotate(25deg); }
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 18px 50px rgba(65, 105, 225, 0.35);
+        }
+
+        .btn-primary:active {
+            transform: scale(0.97);
+        }
+
+        /* ===== SECTION 2: MAIN ===== */
+        .main-section {
+            padding: 28px 0 20px;
+            position: relative;
+        }
+
+        .section-divider {
+            text-align: center;
+            margin: 6px 0 16px;
+            font-family: 'Great Vibes', cursive;
+            font-size: 22px;
+            color: #d4af37;
+            letter-spacing: 3px;
+            opacity: 0.3;
+        }
+
+        .section-divider span {
+            display: inline-block;
+            padding: 0 12px;
+            background: #f0f4f8;
+        }
+
+        .app-container.dark .section-divider span {
+            background: #0a0e1a;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 220px;
+            border-radius: 28px;
+            background: linear-gradient(145deg, #dce4ed, #c8d2e0);
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.04);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-image .hero-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 24px 20px 16px;
+            background: linear-gradient(0deg, rgba(10,14,26,0.25) 0%, transparent 100%);
+        }
+
+        .hero-image .hero-overlay .tag {
+            font-family: 'Great Vibes', cursive;
+            font-size: 14px;
+            color: rgba(255,255,255,0.8);
+            letter-spacing: 2px;
+        }
+
+        .countdown-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 20px;
+            padding: 14px 4px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+            transition: all 0.3s ease;
+        }
+
+        .countdown-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+        }
+
+        .countdown-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 600;
+            color: #0a1a3a;
+            line-height: 1;
+            background: linear-gradient(135deg, #0a1a3a, #4169E1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .countdown-label {
+            font-family: 'Poppins', sans-serif;
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #6a8aaa;
+            margin-top: 4px;
+            font-weight: 300;
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 24px;
+            padding: 20px 22px;
+            margin-bottom: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+        }
+
+        .info-card .label {
+            font-family: 'Poppins', sans-serif;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #4169E1;
+            font-weight: 500;
+        }
+
+        .info-card .value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 19px;
+            font-weight: 500;
+            color: #0a1a3a;
+            margin-top: 2px;
+        }
+
+        .info-card .value i {
+            color: #d4af37;
+            margin-right: 10px;
+            font-size: 15px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .info-card .sub {
+            font-size: 13px;
+            color: #4a6a8a;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+            margin-top: 2px;
+        }
+
+        .info-card .sub i {
+            color: #d4af37;
+            margin-right: 6px;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid rgba(65, 105, 225, 0.15);
+            padding: 10px 22px;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 11px;
+            font-weight: 400;
+            color: #0a1a3a;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-outline:hover {
+            background: rgba(65, 105, 225, 0.03);
+            border-color: #4169E1;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(65, 105, 225, 0.04);
+        }
+
+        .btn-outline i {
+            color: #4169E1;
+        }
+
+        .btn-outline-gold {
+            background: linear-gradient(145deg, rgba(212, 175, 55, 0.04), rgba(212, 175, 55, 0.01));
+            border: 1px solid rgba(212, 175, 55, 0.08);
+        }
+
+        .gallery-scroll {
+            display: flex;
+            gap: 14px;
+            overflow-x: auto;
+            padding: 4px 0 16px;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .gallery-scroll::-webkit-scrollbar {
+            height: 2px;
+        }
+        .gallery-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .gallery-scroll::-webkit-scrollbar-thumb {
+            background: rgba(65, 105, 225, 0.15);
+            border-radius: 10px;
+        }
+
+        .gallery-item {
+            min-width: 150px;
+            height: 170px;
+            border-radius: 24px;
+            background: linear-gradient(145deg, #dce4ed, #c8d2e0);
+            flex-shrink: 0;
+            scroll-snap-align: start;
+            overflow: hidden;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.03);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .rsvp-section {
+            padding: 8px 0 20px;
+        }
+
+        .rsvp-form {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 28px;
+            padding: 28px 24px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 28px rgba(0, 0, 0, 0.02);
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            font-family: 'Poppins', sans-serif;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #4a6a8a;
+            font-weight: 400;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .form-group select,
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid rgba(65, 105, 225, 0.06);
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(6px);
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            color: #0a1a3a;
+            transition: all 0.4s ease;
+            outline: none;
+        }
+
+        .form-group select:focus,
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #4169E1;
+            box-shadow: 0 0 0 4px rgba(65, 105, 225, 0.04);
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        .form-group select option {
+            background: #f0f4f8;
+        }
+
+        .form-group textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(145deg, #4169E1, #3158C8, #1a4aaf);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 28px rgba(65, 105, 225, 0.15);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(65, 105, 225, 0.25);
+        }
+
+        .btn-submit:active {
+            transform: scale(0.98);
+        }
+
+        .wish-item {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 20px;
+            padding: 16px 18px;
+            margin-bottom: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .wish-item:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: translateX(4px);
+        }
+
+        .wish-item .name {
+            font-family: 'Playfair Display', serif;
+            font-size: 15px;
+            font-weight: 500;
+            color: #0a1a3a;
+        }
+
+        .wish-item .msg {
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            color: #2a4a6a;
+            margin: 4px 0 6px;
+            font-weight: 300;
+            line-height: 1.5;
+        }
+
+        .wish-item .meta {
+            font-family: 'Poppins', sans-serif;
+            font-size: 10px;
+            color: #6a8aaa;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .wish-item .reactions {
+            display: flex;
+            gap: 8px;
+            font-size: 16px;
+        }
+
+        .wish-item .reactions span {
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .wish-item .reactions span:hover {
+            transform: scale(1.2);
+        }
+
+        .rsvp-stats {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            padding: 12px 0 18px;
+            flex-wrap: wrap;
+        }
+
+        .rsvp-stats .stat {
+            font-family: 'Poppins', sans-serif;
+            font-size: 12px;
+            color: #4a6a8a;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(6px);
+            padding: 6px 18px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .rsvp-stats .stat .num {
+            font-weight: 600;
+            color: #0a1a3a;
+        }
+
+        .floating-actions {
+            position: sticky;
+            bottom: 16px;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            padding: 8px 0;
+            z-index: 50;
+        }
+
+        .floating-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 6px 28px rgba(0, 0, 0, 0.04);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0a1a3a;
+            font-size: 17px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .floating-btn:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+        }
+
+        .floating-btn:active {
+            transform: scale(0.92);
+        }
+
+        .floating-btn.music {
+            background: rgba(212, 175, 55, 0.06);
+            border-color: rgba(212, 175, 55, 0.06);
+            color: #d4af37;
+        }
+
+        .floating-btn.music.off {
+            opacity: 0.4;
+        }
+
+        .floating-btn.music.off:hover {
+            opacity: 0.7;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 24px 0 12px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 9px;
+            color: #6a8aaa;
+            letter-spacing: 2px;
+            border-top: 1px solid rgba(65, 105, 225, 0.03);
+            margin-top: 12px;
+        }
+
+        .footer .brand {
+            font-family: 'Great Vibes', cursive;
+            font-size: 18px;
+            color: #d4af37;
+            display: block;
+            margin-bottom: 4px;
+            letter-spacing: 4px;
+            opacity: 0.5;
+        }
+
+        .footer .brand span {
+            display: inline-block;
+            padding: 0 6px;
+            opacity: 0.3;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(1deg); }
+        }
+
+        .float-anim {
+            animation: float 5s ease-in-out infinite;
+        }
+
+        /* ===== DARK MODE ===== */
+        .app-container.dark {
+            background: #0a0e1a;
+            background-image:
+                radial-gradient(ellipse at 20% 0%, rgba(65, 105, 225, 0.03) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 100%, rgba(100, 149, 237, 0.02) 0%, transparent 50%);
+        }
+
+        .app-container.dark .cover-section {
+            background: linear-gradient(170deg, #0a0e1a, #0f1a3a, #0a0e1a);
+        }
+
+        .app-container.dark .cover-couple,
+        .app-container.dark .cover-guest-name,
+        .app-container.dark .countdown-number,
+        .app-container.dark .info-card .value {
+            color: #e8edf5;
+        }
+
+        .app-container.dark .cover-sub,
+        .app-container.dark .cover-guest,
+        .app-container.dark .countdown-label,
+        .app-container.dark .form-group label {
+            color: #6a8aaa;
+        }
+
+        .app-container.dark .info-card,
+        .app-container.dark .rsvp-form,
+        .app-container.dark .wish-item {
+            background: rgba(255, 255, 255, 0.02);
+            border-color: rgba(255, 255, 255, 0.02);
+        }
+
+        .app-container.dark .form-group select,
+        .app-container.dark .form-group input,
+        .app-container.dark .form-group textarea {
+            background: rgba(255, 255, 255, 0.02);
+            border-color: rgba(255, 255, 255, 0.04);
+            color: #e8edf5;
+        }
+
+        .app-container.dark .form-group select:focus,
+        .app-container.dark .form-group input:focus,
+        .app-container.dark .form-group textarea:focus {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: #4169E1;
+        }
+
+        .app-container.dark .form-group select option {
+            background: #0a0e1a;
+            color: #e8edf5;
+        }
+
+        .app-container.dark .btn-outline {
+            color: #e8edf5;
+            border-color: rgba(65, 105, 225, 0.06);
+        }
+
+        .app-container.dark .btn-outline:hover {
+            border-color: #4169E1;
+            background: rgba(65, 105, 225, 0.03);
+        }
+
+        .app-container.dark .floating-btn {
+            background: rgba(255, 255, 255, 0.02);
+            border-color: rgba(255, 255, 255, 0.02);
+            color: #4a6a8a;
+        }
+
+        .app-container.dark .floating-btn.music {
+            background: rgba(212, 175, 55, 0.02);
+            color: #d4af37;
+        }
+
+        .app-container.dark .footer {
+            border-color: rgba(255, 255, 255, 0.02);
+            color: #2a4a6a;
+        }
+
+        .app-container.dark .rsvp-stats .stat {
+            background: rgba(255, 255, 255, 0.02);
+            border-color: rgba(255, 255, 255, 0.02);
+            color: #4a6a8a;
+        }
+
+        .app-container.dark .rsvp-stats .stat .num {
+            color: #e8edf5;
+        }
+
+        .app-container.dark .countdown-item {
+            background: rgba(255, 255, 255, 0.02);
+            border-color: rgba(255, 255, 255, 0.02);
+        }
+
+        .app-container.dark .countdown-number {
+            background: linear-gradient(135deg, #e8edf5, #6a8aaa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .app-container.dark .dark-toggle {
+            background: rgba(255, 255, 255, 0.02);
+            border-color: rgba(255, 255, 255, 0.02);
+        }
+
+        .app-container.dark .dark-toggle button {
+            color: #4a6a8a;
+        }
+
+        .app-container.dark .dark-toggle button.active {
+            background: rgba(255, 255, 255, 0.04);
+            color: #e8edf5;
+        }
+
+        .app-container.dark .cover-photo {
+            background: linear-gradient(145deg, #0f1a3a, #0a0e1a);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2), 0 0 0 4px rgba(65, 105, 225, 0.04);
+        }
+
+        .app-container.dark .wish-item .name {
+            color: #e8edf5;
+        }
+
+        .app-container.dark .wish-item .msg {
+            color: #6a8aaa;
+        }
+
+        .app-container.dark .wish-item .meta {
+            color: #3a5a7a;
+        }
+
+        .app-container.dark .info-card .sub {
+            color: #4a6a8a;
+        }
+
+        .app-container.dark .hero-image {
+            background: linear-gradient(145deg, #0f1a3a, #0a0e1a);
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 4px 16px;
+            border-radius: 50px;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            background: rgba(65, 105, 225, 0.03);
+            color: #4169E1;
+            border: 1px solid rgba(65, 105, 225, 0.04);
+        }
+
+        .dark-toggle {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            padding: 4px 6px;
+            display: flex;
+            gap: 4px;
+        }
+
+        .dark-toggle button {
+            background: transparent;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 50px;
+            font-size: 12px;
+            cursor: pointer;
+            color: #4a6a8a;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .dark-toggle button.active {
+            background: rgba(255, 255, 255, 0.3);
+            color: #0a1a3a;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.02);
+        }
+
+        /* ===== MODAL EDIT TAMU (ADMIN ONLY) ===== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 14, 26, 0.6);
+            backdrop-filter: blur(12px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-overlay.show {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: #f0f4f8;
+            border-radius: 32px;
+            padding: 36px 32px;
+            max-width: 360px;
+            width: 90%;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: slideUp 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .app-container.dark .modal-content {
+            background: #0a0e1a;
+            border-color: rgba(255, 255, 255, 0.02);
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(30px) scale(0.96); opacity: 0; }
+            to { transform: translateY(0) scale(1); opacity: 1; }
+        }
+
+        .modal-content .modal-icon {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 8px;
+            color: #d4af37;
+            opacity: 0.4;
+        }
+
+        .modal-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            color: #0a1a3a;
+            text-align: center;
+            margin-bottom: 4px;
+        }
+
+        .app-container.dark .modal-content h3 {
+            color: #e8edf5;
+        }
+
+        .modal-content .modal-sub {
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            color: #4a6a8a;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .app-container.dark .modal-content .modal-sub {
+            color: #4a6a8a;
+        }
+
+        .modal-content .admin-note {
+            font-family: 'Poppins', sans-serif;
+            font-size: 10px;
+            color: #4169E1;
+            text-align: center;
+            margin-bottom: 16px;
+            opacity: 0.5;
+            letter-spacing: 1px;
+            background: rgba(65, 105, 225, 0.02);
+            padding: 6px 12px;
+            border-radius: 50px;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .modal-content .admin-note i {
+            margin-right: 4px;
+        }
+
+        .modal-content input {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid rgba(65, 105, 225, 0.06);
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.3);
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            color: #0a1a3a;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .app-container.dark .modal-content input {
+            background: rgba(255, 255, 255, 0.02);
+            border-color: rgba(255, 255, 255, 0.04);
+            color: #e8edf5;
+        }
+
+        .modal-content input:focus {
+            border-color: #4169E1;
+            box-shadow: 0 0 0 4px rgba(65, 105, 225, 0.04);
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .modal-actions button {
+            flex: 1;
+            padding: 14px;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-actions .btn-cancel {
+            background: rgba(0,0,0,0.02);
+            color: #4a6a8a;
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+
+        .app-container.dark .modal-actions .btn-cancel {
+            background: rgba(255,255,255,0.02);
+            color: #4a6a8a;
+            border-color: rgba(255,255,255,0.02);
+        }
+
+        .modal-actions .btn-cancel:hover {
+            background: rgba(0,0,0,0.04);
+        }
+
+        .modal-actions .btn-save {
+            background: linear-gradient(145deg, #4169E1, #3158C8);
+            color: #fff;
+            box-shadow: 0 4px 16px rgba(65, 105, 225, 0.15);
+        }
+
+        .modal-actions .btn-save:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(65, 105, 225, 0.2);
+        }
+
+        .password-section {
+            margin: 12px 0 16px;
+        }
+
+        .password-section label {
+            font-family: 'Poppins', sans-serif;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #4a6a8a;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .password-section .password-input-wrapper {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .password-section input {
+            flex: 1;
+            padding: 10px 14px;
+            border: 1px solid rgba(65, 105, 225, 0.06);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.3);
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            color: #0a1a3a;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .app-container.dark .password-section input {
+            background: rgba(255, 255, 255, 0.02);
+            border-color: rgba(255, 255, 255, 0.04);
+            color: #e8edf5;
+        }
+
+        .password-section input:focus {
+            border-color: #4169E1;
+            box-shadow: 0 0 0 3px rgba(65, 105, 225, 0.04);
+        }
+
+        .password-section .btn-verify {
+            padding: 10px 18px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(145deg, #4169E1, #3158C8);
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .password-section .btn-verify:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(65, 105, 225, 0.15);
+        }
+
+        .password-section .password-error {
+            font-family: 'Poppins', sans-serif;
+            font-size: 11px;
+            color: #e74c3c;
+            margin-top: 4px;
+            display: none;
+        }
+
+        .password-section .password-error.show {
+            display: block;
+        }
+
+        .password-section .password-success {
+            font-family: 'Poppins', sans-serif;
+            font-size: 11px;
+            color: #27ae60;
+            margin-top: 4px;
+            display: none;
+        }
+
+        .password-section .password-success.show {
+            display: block;
+        }
+
+        .name-edit-area {
+            display: none;
+            margin-top: 12px;
+        }
+
+        .name-edit-area.show {
+            display: block;
+            animation: fadeInUp 0.3s ease;
+        }
+
+        .admin-lock-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 8px;
+            color: #4169E1;
+            opacity: 0.2;
+            letter-spacing: 1px;
+            margin-top: 2px;
+        }
+
+        .admin-lock-badge i {
+            font-size: 10px;
+        }
+
+        .app-container.dark .admin-lock-badge {
+            color: #4a6a8a;
+        }
+
+        @media (max-width: 420px) {
+            .phone-mockup {
+                max-width: 100%;
+                height: 100vh;
+                border-radius: 0;
+                max-height: 820px;
+            }
+            .cover-couple {
+                font-size: 32px;
+            }
+            .countdown-number {
+                font-size: 26px;
+            }
+        }
+
+        @media (max-height: 700px) {
+            .cover-photo {
+                width: 110px;
+                height: 110px;
+            }
+            .cover-couple {
+                font-size: 28px;
+            }
+            .countdown-number {
+                font-size: 22px;
+            }
+            .hero-image {
+                height: 160px;
+            }
+            .gallery-item {
+                min-width: 110px;
+                height: 130px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== MODAL EDIT TAMU (ADMIN ONLY) ===== -->
+    <div class="modal-overlay" id="guestModal">
+        <div class="modal-content">
+            <div class="modal-icon">🔒</div>
+            <h3>✧ Edit Nama Tamu ✧</h3>
+            <p class="modal-sub">Hanya admin yang dapat mengubah nama tamu</p>
+
+            <div class="password-section">
+                <label>Masukkan Kode Admin</label>
+                <div class="password-input-wrapper">
+                    <input type="password" id="adminPassword" placeholder="Kode admin..." />
+                    <button class="btn-verify" onclick="verifyAdmin()">Verifikasi</button>
+                </div>
+                <div class="password-error" id="passwordError">❌ Kode admin salah. Silakan coba lagi.</div>
+                <div class="password-success" id="passwordSuccess">✅ Verifikasi berhasil! Anda dapat mengubah nama tamu.</div>
+            </div>
+
+            <div class="name-edit-area" id="nameEditArea">
+                <label style="font-family:'Poppins',sans-serif; font-size:10px; text-transform:uppercase; letter-spacing:2px; color:#4a6a8a; display:block; margin-bottom:6px;">Nama Tamu</label>
+                <input type="text" id="guestNameInput" placeholder="Masukkan nama tamu" />
+                <div class="modal-actions">
+                    <button class="btn-cancel" onclick="closeGuestModal()">Batal</button>
+                    <button class="btn-save" onclick="saveGuestName()">Simpan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== PHONE MOCKUP ===== -->
+    <div class="phone-mockup" id="app">
+        <!-- Loading Screen -->
+        <div id="loading-screen">
+            <div class="loader-ring"></div>
+            <div class="loader-text">
+                <span>H</span><span>a</span><span>n</span><span>i</span><span>f</span><span>a</span><span>h</span>
+                <span style="margin:0 4px;">&</span>
+                <span>F</span><span>a</span><span>r</span><span>i</span><span>d</span>
+            </div>
+        </div>
+
+        <!-- Main App -->
+        <div class="app-container" id="appContainer">
+
+            <!-- Floral Decor -->
+            <div class="floral-decor floral-decor-1"></div>
+            <div class="floral-decor floral-decor-2"></div>
+
+            <!-- Dark Mode Toggle -->
+            <div class="dark-toggle">
+                <button class="active" id="lightMode" onclick="setTheme('light')">☀</button>
+                <button id="darkMode" onclick="setTheme('dark')">🌙</button>
+            </div>
+
+            <!-- ============================== -->
+            <!-- SECTION 1: COVER               -->
+            <!-- ============================== -->
+            <section class="cover-section" id="cover">
+                <div class="cover-badge">✦ We're Getting Married ✦</div>
+
+                <div class="cover-photo float-anim">
+                    <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=200&h=200&fit=crop&crop=center" alt="Hanifah & Farid" />
+                </div>
+
+                <div class="cover-title">The Wedding Of</div>
+                <div class="cover-couple">
+                    Hanifah <span class="ampersand">&</span> Farid
+                </div>
+                <div class="cover-sub">— 14 Juni 2025 —</div>
+                <div class="cover-divider"></div>
+
+                <div class="cover-guest">Kepada Yth.</div>
+                <div class="cover-guest-name-wrapper">
+                    <div class="cover-guest-name" id="guestNameDisplay">Bapak/Ibu Tamu</div>
+                </div>
+
+                <div class="admin-edit-area">
+                    <span class="admin-lock-badge"><i class="fas fa-lock"></i> Admin Only</span>
+                    <button class="btn-edit-guest" onclick="openGuestModal()">
+                        <i class="fas fa-pen"></i> Edit Nama
+                    </button>
+                </div>
+
+                <button class="btn-primary" onclick="openInvitation()">
+                    <i class="fas fa-envelope-open" style="margin-right: 12px;"></i> Buka Undangan
+                </button>
+            </section>
+
+            <!-- ============================== -->
+            <!-- SECTION 2: MAIN               -->
+            <!-- ============================== -->
+            <section class="main-section" id="main" style="display:none;">
+
+                <div class="section-divider"><span>— ✦ —</span></div>
+
+                <!-- Hero -->
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600&h=300&fit=crop&crop=center" alt="Couple Hero" />
+                    <div class="hero-overlay">
+                        <div class="tag">✦ Hanifah & Farid ✦</div>
+                    </div>
+                </div>
+
+                <!-- Countdown -->
+                <div class="countdown-grid" id="countdown">
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="days">00</div>
+                        <div class="countdown-label">Hari</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="hours">00</div>
+                        <div class="countdown-label">Jam</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="minutes">00</div>
+                        <div class="countdown-label">Menit</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="seconds">00</div>
+                        <div class="countdown-label">Detik</div>
+                    </div>
+                </div>
+
+                <!-- Info Cards -->
+                <div class="info-card">
+                    <div class="label">Akad Nikah</div>
+                    <div class="value"><i class="fas fa-ring"></i> Sabtu, 14 Juni 2025 • 09:00 WIB</div>
+                    <div class="sub"><i class="fas fa-map-pin"></i> Masjid Agung Al-Ikhlas, Jakarta</div>
+                    <div style="margin-top:12px; display:flex; gap:8px; flex-wrap:wrap;">
+                        <button class="btn-outline" onclick="window.open('https://maps.google.com','_blank')">
+                            <i class="fas fa-map"></i> Maps
+                        </button>
+                        <button class="btn-outline btn-outline-gold" onclick="addToCalendar()">
+                            <i class="fas fa-calendar-plus"></i> Simpan
+                        </button>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="label">Resepsi</div>
+                    <div class="value"><i class="fas fa-utensils"></i> Sabtu, 14 Juni 2025 • 11:00 - 15:00 WIB</div>
+                    <div class="sub"><i class="fas fa-map-pin"></i> The Grand Ballroom, Hotel Mulia</div>
+                    <div style="margin-top:12px; display:flex; gap:8px; flex-wrap:wrap;">
+                        <button class="btn-outline" onclick="window.open('https://maps.google.com','_blank')">
+                            <i class="fas fa-map"></i> Maps
+                        </button>
+                        <button class="btn-outline btn-outline-gold" onclick="addToCalendar()">
+                            <i class="fas fa-calendar-plus"></i> Simpan
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Gallery -->
+                <div style="margin: 20px 0 12px;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                        <span style="font-family:'Playfair Display',serif; font-size:17px; color:#0a1a3a; font-weight:500;">Galeri Momen</span>
+                        <span class="status-badge">❤️ 12 foto</span>
+                    </div>
+                    <div class="gallery-scroll">
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=200&h=200&fit=crop&crop=center" alt="Gallery" />
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=200&h=200&fit=crop&crop=center&sat=-50" alt="Gallery" />
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=200&h=200&fit=crop&crop=center&sat=-30" alt="Gallery" />
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=200&h=200&fit=crop&crop=center&sat=-20" alt="Gallery" />
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=200&h=200&fit=crop&crop=center" alt="Gallery" />
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align:center; margin:16px 0 8px; font-family:'Great Vibes',cursive; font-size:22px; color:#d4af37; letter-spacing:3px; opacity:0.4;">
+                    ✧ Turut Mengundang ✧
+                </div>
+                <div style="text-align:center; font-size:12px; color:#4a6a8a; margin-bottom:12px; font-family:'Poppins',sans-serif; font-weight:300;">
+                    Kehadiran Anda adalah kebahagiaan bagi kami
+                </div>
+
+                <!-- Dress Code & Timeline -->
+                <div style="display:flex; gap:12px; margin:12px 0;">
+                    <div class="info-card" style="flex:1; padding:14px 16px;">
+                        <div class="label">Dress Code</div>
+                        <div style="font-size:13px; color:#0a1a3a; font-family:'Poppins',sans-serif; font-weight:400;">
+                            ✨ Formal • Biru & Emas
+                        </div>
+                    </div>
+                    <div class="info-card" style="flex:1; padding:14px 16px;">
+                        <div class="label">Live Stream</div>
+                        <div style="font-size:13px; color:#0a1a3a; font-family:'Poppins',sans-serif; font-weight:400;">
+                            <i class="fab fa-youtube" style="color:#d4af37;"></i> YouTube
+                        </div>
+                    </div>
+                </div>
+
+                <!-- QR & Bank -->
+                <div style="display:flex; gap:12px; margin:12px 0;">
+                    <div class="info-card" style="flex:1; padding:16px 14px; text-align:center;">
+                        <div class="label">QR Code</div>
+                        <div style="font-size:36px; color:#d4af37; margin:6px 0; opacity:0.3;">◈</div>
+                        <div style="font-size:10px; color:#4a6a8a; font-family:'Poppins',sans-serif;">Scan untuk Lokasi</div>
+                    </div>
+                    <div class="info-card" style="flex:1; padding:16px 14px; text-align:center;">
+                        <div class="label">Amplop Digital</div>
+                        <div style="font-size:32px; margin:6px 0;">💌</div>
+                        <div style="font-size:10px; color:#4a6a8a; font-family:'Poppins',sans-serif;">QRIS • BCA 1234567</div>
+                    </div>
+                </div>
+
+                <!-- Instagram -->
+                <div class="info-card" style="display:flex; align-items:center; justify-content:space-between; padding:14px 18px;">
+                    <div>
+                        <div class="label">Instagram</div>
+                        <div style="font-size:14px; color:#0a1a3a; font-family:'Poppins',sans-serif; font-weight:400;">@hanifah_farid</div>
+                    </div>
+                    <i class="fab fa-instagram" style="font-size:24px; color:#d4af37; opacity:0.5;"></i>
+                </div>
+
+                <!-- Protokol -->
+                <div class="info-card" style="padding:14px 18px;">
+                    <div class="label">Protokol Acara</div>
+                    <div style="font-size:12px; color:#2a4a6a; font-family:'Poppins',sans-serif; margin-top:6px; line-height:1.8;">
+                        <i class="fas fa-clock" style="color:#d4af37; width:16px;"></i> Mohon datang tepat waktu<br>
+                        <i class="fas fa-mask" style="color:#d4af37; width:16px;"></i> Gunakan masker di area dalam<br>
+                        <i class="fas fa-parking" style="color:#d4af37; width:16px;"></i> Parkir tersedia di basement
+                    </div>
+                </div>
+
+                <div class="section-divider" style="margin:24px 0 12px;"><span>— ✦ —</span></div>
+
+                <!-- ============================== -->
+                <!-- SECTION 3: RSVP & WISHES      -->
+                <!-- ============================== -->
+                <div class="rsvp-section" id="rsvp">
+                    <h3 style="font-family:'Playfair Display',serif; font-size:22px; color:#0a1a3a; text-align:center; margin-bottom:16px; font-weight:500; letter-spacing:2px;">
+                        RSVP & Ucapan
+                    </h3>
+
+                    <div class="rsvp-form">
+                        <div class="form-group">
+                            <label><i class="fas fa-user" style="margin-right:6px;"></i> Nama Lengkap</label>
+                            <input type="text" id="rsvpName" placeholder="Tulis nama Anda" />
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-check-circle" style="margin-right:6px;"></i> Kehadiran</label>
+                            <select id="rsvpStatus">
+                                <option value="Hadir">✨ Hadir</option>
+                                <option value="Tidak Hadir">💫 Tidak Hadir</option>
+                                <option value="Masih Ragu">🌙 Masih Ragu</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-users" style="margin-right:6px;"></i> Jumlah Tamu</label>
+                            <input type="number" id="rsvpGuests" value="1" min="1" max="10" />
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-heart" style="margin-right:6px;"></i> Ucapan & Doa</label>
+                            <textarea id="rsvpMessage" placeholder="Tulis ucapan, doa, atau harapan Anda..."></textarea>
+                        </div>
+                        <button class="btn-submit" onclick="submitRSVP()">
+                            <i class="fas fa-paper-plane" style="margin-right:10px;"></i> Kirim Ucapan
+                        </button>
+                    </div>
+
+                    <!-- Stats -->
+                    <div class="rsvp-stats">
+                        <span class="stat"><i class="fas fa-check-circle" style="color:#4169E1;"></i> <span class="num" id="totalHadir">3</span> Hadir</span>
+                        <span class="stat"><i class="fas fa-user-friends" style="color:#4169E1;"></i> <span class="num" id="totalTamu">5</span> Tamu</span>
+                        <span class="stat"><i class="fas fa-heart" style="color:#4169E1;"></i> <span class="num" id="totalUcapan">3</span> Ucapan</span>
+                    </div>
+
+                    <!-- Wishes Feed -->
+                    <div id="wishesFeed">
+                        <div class="wish-item">
+                            <div class="name">Aisyah & Keluarga</div>
+                            <div class="msg">"Selamat menempuh hidup baru! Semoga menjadi keluarga sakinah mawaddah warahmah. ❤️"</div>
+                            <div class="meta">
+                                <span>✅ Hadir • 2 tamu</span>
+                                <span class="reactions">
+                                    <span onclick="react(this)">❤️ 4</span>
+                                    <span onclick="react(this)">🤍 2</span>
+                                    <span onclick="react(this)">🎉 1</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="wish-item">
+                            <div class="name">Budi Santoso</div>
+                            <div class="msg">"Barakallah! Semoga selalu dalam kebahagiaan dan keberkahan. 🙏"</div>
+                            <div class="meta">
+                                <span>✅ Hadir • 1 tamu</span>
+                                <span class="reactions">
+                                    <span onclick="react(this)">❤️ 3</span>
+                                    <span onclick="react(this)">🤍 1</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="wish-item">
+                            <div class="name">Dewi & Rizky</div>
+                            <div class="msg">"Selamat ya! Semoga langgeng sampai tua. Kami doakan yang terbaik! 🎉"</div>
+                            <div class="meta">
+                                <span>✅ Hadir • 2 tamu</span>
+                                <span class="reactions">
+                                    <span onclick="react(this)">❤️ 5</span>
+                                    <span onclick="react(this)">🎉 2</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="footer">
+                        <span class="brand">✦ Hanifah <span>&</span> Farid ✦</span>
+                        Dengan cinta dan doa, kami mengundang Anda
+                        <br>— 14 Juni 2025 —
+                    </div>
+
+                    <!-- Floating Actions -->
+                    <div class="floating-actions">
+                        <button class="floating-btn" onclick="shareWhatsApp()"><i class="fab fa-whatsapp"></i></button>
+                        <button class="floating-btn" onclick="copyLink()"><i class="fas fa-link"></i></button>
+                        <button class="floating-btn music off" id="musicBtn" onclick="toggleMusic()"><i class="fas fa-music"></i></button>
+                        <button class="floating-btn" onclick="window.open('https://youtube.com','_blank')"><i class="fab fa-youtube"></i></button>
+                    </div>
+
+                </div><!-- end rsvp-section -->
+
+            </section><!-- end main-section -->
+
+        </div><!-- end app-container -->
+    </div><!-- end phone-mockup -->
+
+    <script>
+        // ===== ADMIN PASSWORD =====
+        const ADMIN_PASSWORD = 'admin123';
+        let isAdminVerified = false;
+
+        function verifyAdmin() {
+            const input = document.getElementById('adminPassword');
+            const error = document.getElementById('passwordError');
+            const success = document.getElementById('passwordSuccess');
+            const nameArea = document.getElementById('nameEditArea');
+
+            if (input.value === ADMIN_PASSWORD) {
+                isAdminVerified = true;
+                error.classList.remove('show');
+                success.classList.add('show');
+                nameArea.classList.add('show');
+                document.getElementById('guestNameInput').focus();
+                input.disabled = true;
+                document.querySelector('.password-section .btn-verify').disabled = true;
+                document.querySelector('.password-section .btn-verify').textContent = '✅';
+            } else {
+                error.classList.add('show');
+                success.classList.remove('show');
+                input.value = '';
+                input.focus();
+            }
+        }
+
+        document.getElementById('adminPassword').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') verifyAdmin();
+        });
+
+        // ===== LOADING =====
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loading-screen').classList.add('hide');
+            }, 2200);
+        });
+
+        // ===== GUEST NAME MANAGEMENT =====
+        let currentGuestName = 'Bapak/Ibu Tamu';
+
+        function updateGuestName(name) {
+            currentGuestName = name;
+            document.getElementById('guestNameDisplay').textContent = name;
+            document.getElementById('rsvpName').value = name;
+            const url = new URL(window.location);
+            url.searchParams.set('tamu', name);
+            window.history.replaceState({}, '', url);
+        }
+
+        function openGuestModal() {
+            isAdminVerified = false;
+            document.getElementById('adminPassword').value = '';
+            document.getElementById('adminPassword').disabled = false;
+            document.querySelector('.password-section .btn-verify').disabled = false;
+            document.querySelector('.password-section .btn-verify').textContent = 'Verifikasi';
+            document.getElementById('passwordError').classList.remove('show');
+            document.getElementById('passwordSuccess').classList.remove('show');
+            document.getElementById('nameEditArea').classList.remove('show');
+            document.getElementById('guestNameInput').value = currentGuestName;
+
+            document.getElementById('guestModal').classList.add('show');
+            setTimeout(() => document.getElementById('adminPassword').focus(), 150);
+        }
+
+        function closeGuestModal() {
+            document.getElementById('guestModal').classList.remove('show');
+        }
+
+        function saveGuestName() {
+            if (!isAdminVerified) {
+                alert('🔒 Silakan verifikasi kode admin terlebih dahulu.');
+                return;
+            }
+            const name = document.getElementById('guestNameInput').value.trim();
+            if (name) {
+                updateGuestName(name);
+                closeGuestModal();
+                isAdminVerified = false;
+                document.getElementById('adminPassword').value = '';
+                document.getElementById('adminPassword').disabled = false;
+                document.querySelector('.password-section .btn-verify').disabled = false;
+                document.querySelector('.password-section .btn-verify').textContent = 'Verifikasi';
+                document.getElementById('passwordSuccess').classList.remove('show');
+                document.getElementById('nameEditArea').classList.remove('show');
+            } else {
+                alert('Mohon masukkan nama tamu.');
+            }
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeGuestModal();
+        });
+
+        document.getElementById('guestModal').addEventListener('click', function(e) {
+            if (e.target === this) closeGuestModal();
+        });
+
+        // ===== INIT GUEST FROM URL =====
+        const urlParams = new URLSearchParams(window.location.search);
+        const guestParam = urlParams.get('tamu');
+        if (guestParam) {
+            updateGuestName(decodeURIComponent(guestParam));
+        }
+
+        // ===== OPEN INVITATION =====
+        function openInvitation() {
+            document.getElementById('cover').style.display = 'none';
+            document.getElementById('main').style.display = 'block';
+            document.getElementById('main').scrollIntoView({ behavior: 'smooth' });
+            startCountdown();
+        }
+
+        // ===== COUNTDOWN =====
+        const weddingDate = new Date('2025-06-14T09:00:00').getTime();
+
+        function startCountdown() {
+            const interval = setInterval(function() {
+                const now = new Date().getTime();
+                const distance = weddingDate - now;
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('days').textContent = String(days).padStart(2, '0');
+                document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+                document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+
+                if (distance < 0) {
+                    clearInterval(interval);
+                    document.getElementById('days').textContent = '00';
+                    document.getElementById('hours').textContent = '00';
+                    document.getElementById('minutes').textContent = '00';
+                    document.getElementById('seconds').textContent = '00';
+                }
+            }, 1000);
+        }
+
+        // ===== CALENDAR =====
+        function addToCalendar() {
+            const event = {
+                title: 'Pernikahan Hanifah & Farid',
+                start: '20250614T090000',
+                end: '20250614T150000',
+                details: 'Akad & Resepsi pernikahan Hanifah dan Farid',
+                location: 'Hotel Mulia, Jakarta'
+            };
+            const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(event.title)}&dates=${event.start}/${event.end}&details=${encodeURIComponent(event.details)}&location=${encodeURIComponent(event.location)}`;
+            window.open(url, '_blank');
+        }
+
+        // ===== RSVP =====
+        let rsvpCount = { hadir: 3, tamu: 5, ucapan: 3 };
+
+        function submitRSVP() {
+            const name = document.getElementById('rsvpName').value.trim() || 'Tamu Undangan';
+            const status = document.getElementById('rsvpStatus').value;
+            const guests = parseInt(document.getElementById('rsvpGuests').value) || 1;
+            const message = document.getElementById('rsvpMessage').value.trim() || 'Semoga bahagia selalu! 🙏';
+
+            if (status === 'Hadir') rsvpCount.hadir += 1;
+            rsvpCount.tamu += guests;
+            rsvpCount.ucapan += 1;
+
+            document.getElementById('totalHadir').textContent = rsvpCount.hadir;
+            document.getElementById('totalTamu').textContent = rsvpCount.tamu;
+            document.getElementById('totalUcapan').textContent = rsvpCount.ucapan;
+
+            const feed = document.getElementById('wishesFeed');
+            const wish = document.createElement('div');
+            wish.className = 'wish-item';
+            wish.style.animation = 'fadeInUp 0.4s ease both';
+            const statusEmoji = status === 'Hadir' ? '✅' : status === 'Tidak Hadir' ? '❌' : '🌙';
+            wish.innerHTML = `
+                <div class="name">${name}</div>
+                <div class="msg">"${message}"</div>
+                <div class="meta">
+                    <span>${statusEmoji} ${status} • ${guests} tamu</span>
+                    <span class="reactions">
+                        <span onclick="react(this)">❤️ 0</span>
+                        <span onclick="react(this)">🤍 0</span>
+                        <span onclick="react(this)">🎉 0</span>
+                    </span>
+                </div>
+            `;
+            feed.prepend(wish);
+
+            document.getElementById('rsvpMessage').value = '';
+            document.getElementById('rsvpGuests').value = '1';
+
+            const btn = document.querySelector('.btn-submit');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check"></i> Terkirim!';
+            btn.style.background = 'linear-gradient(145deg, #2d8a4e, #1e6b3a)';
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.style.background = '';
+            }, 2000);
+        }
+
+        // ===== REACTION =====
+        function react(el) {
+            const text = el.textContent;
+            const parts = text.split(' ');
+            const emoji = parts[0];
+            let count = parseInt(parts[1]) || 0;
+            count += 1;
+            el.textContent = `${emoji} ${count}`;
+            el.style.transform = 'scale(1.3)';
+            setTimeout(() => { el.style.transform = 'scale(1)'; }, 300);
+        }
+
+        // ===== SHARE & COPY =====
+        function shareWhatsApp() {
+            const text = `💍 Saya diundang ke pernikahan Hanifah & Farid! ✨\n\nYuk lihat undangannya:\n${window.location.href}`;
+            window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+        }
+
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                const btn = event.target.closest('.floating-btn');
+                const original = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-check"></i>';
+                setTimeout(() => { btn.innerHTML = original; }, 1500);
+            }).catch(() => {
+                const input = document.createElement('input');
+                input.value = window.location.href;
+                document.body.appendChild(input);
+                input.select();
+                document.execCommand('copy');
+                document.body.removeChild(input);
+                alert('✅ Link undangan disalin!');
+            });
+        }
+
+        // ===== MUSIC =====
+        let musicPlaying = false;
+        let audioCtx = null;
+        let musicInterval = null;
+
+        function toggleMusic() {
+            const btn = document.getElementById('musicBtn');
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                playSoftMelody();
+                musicPlaying = true;
+                btn.classList.remove('off');
+                btn.innerHTML = '<i class="fas fa-music"></i>';
+            } else if (musicPlaying) {
+                audioCtx.suspend();
+                musicPlaying = false;
+                btn.classList.add('off');
+                btn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+                if (musicInterval) {
+                    clearTimeout(musicInterval);
+                    musicInterval = null;
+                }
+            } else {
+                audioCtx.resume();
+                musicPlaying = true;
+                btn.classList.remove('off');
+                btn.innerHTML = '<i class="fas fa-music"></i>';
+                playSoftMelody();
+            }
+        }
+
+        function playSoftMelody() {
+            if (!audioCtx || !musicPlaying) return;
+            const notes = [523.25, 587.33, 659.25, 783.99, 880.00, 987.77, 1174.66, 1318.51];
+            let index = 0;
+
+            function playNote() {
+                if (!musicPlaying || !audioCtx) return;
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.type = 'sine';
+                osc.frequency.value = notes[index % notes.length];
+                gain.gain.setValueAtTime(0.025, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.8);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.8);
+                index++;
+                musicInterval = setTimeout(playNote, 1400 + Math.random() * 500);
+            }
+
+            musicInterval = setTimeout(playNote, 400);
+        }
+
+        // ===== THEME =====
+        function setTheme(theme) {
+            const container = document.getElementById('appContainer');
+            const lightBtn = document.getElementById('lightMode');
+            const darkBtn = document.getElementById('darkMode');
+
+            if (theme === 'dark') {
+                container.classList.add('dark');
+                lightBtn.classList.remove('active');
+                darkBtn.classList.add('active');
+                localStorage.setItem('weddingTheme', 'dark');
+            } else {
+                container.classList.remove('dark');
+                lightBtn.classList.add('active');
+                darkBtn.classList.remove('active');
+                localStorage.setItem('weddingTheme', 'light');
+            }
+        }
+
+        // ===== INIT THEME =====
+        const savedTheme = localStorage.getItem('weddingTheme');
+        if (savedTheme === 'dark') setTheme('dark');
+
+        // ===== INIT STATS =====
+        document.getElementById('totalHadir').textContent = rsvpCount.hadir;
+        document.getElementById('totalTamu').textContent = rsvpCount.tamu;
+        document.getElementById('totalUcapan').textContent = rsvpCount.ucapan;
+
+        console.log('✨ Undangan Premium Hanifah & Farid ✨');
+        console.log('💎 Desain dengan perpaduan Putih & Biru Mewah');
+        console.log('🔒 Edit nama tamu: Admin Only (Password: admin123)');
+        console.log('📱 Responsive 9:19.5');
+    </script>
+
+</body>
+</html>
