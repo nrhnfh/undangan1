@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Hanifah & Farid - Premium Wedding Invitation</title>
+    <title>Nurhanifah & Farid - Premium Wedding Invitation</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -66,12 +66,12 @@
                 inset 0 0 60px rgba(173, 216, 230, 0.03);
             transition: all 0.3s ease;
             z-index: 1;
-           
+            animation: floatPhone 8s ease-in-out infinite;
         }
 
         @keyframes floatPhone {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-8px) rotate(0.5deg); }
+            50% { transform: translateY(-6px) rotate(0.5deg); }
         }
 
         .phone-notch {
@@ -243,16 +243,16 @@
             position: absolute;
             pointer-events: none;
             z-index: 1;
-            opacity: 0.25;
+            opacity: 0.2;
         }
 
         .floral-decor-1 {
             top: -20px;
             left: -20px;
-            width: 180px;
-            height: 180px;
+            width: 160px;
+            height: 160px;
             background:
-                radial-gradient(circle at 30% 30%, rgba(100, 149, 237, 0.12) 0%, transparent 60%),
+                radial-gradient(circle at 30% 30%, rgba(100, 149, 237, 0.1) 0%, transparent 60%),
                 radial-gradient(circle at 70% 70%, rgba(212, 175, 55, 0.04) 0%, transparent 50%);
             border-radius: 50%;
         }
@@ -262,7 +262,7 @@
             position: absolute;
             top: 20px;
             left: 25px;
-            font-size: 52px;
+            font-size: 48px;
             color: #6495ED;
             opacity: 0.2;
             transform: rotate(-10deg);
@@ -273,7 +273,7 @@
             position: absolute;
             bottom: 20px;
             right: 15px;
-            font-size: 32px;
+            font-size: 28px;
             color: #d4af37;
             opacity: 0.12;
             transform: rotate(15deg);
@@ -282,8 +282,8 @@
         .floral-decor-2 {
             bottom: -20px;
             right: -20px;
-            width: 200px;
-            height: 200px;
+            width: 180px;
+            height: 180px;
             background:
                 radial-gradient(circle at 70% 70%, rgba(100, 149, 237, 0.08) 0%, transparent 50%),
                 radial-gradient(circle at 30% 30%, rgba(212, 175, 55, 0.03) 0%, transparent 40%);
@@ -295,9 +295,9 @@
             position: absolute;
             bottom: 30px;
             right: 25px;
-            font-size: 60px;
+            font-size: 52px;
             color: #6495ED;
-            opacity: 0.12;
+            opacity: 0.1;
             transform: rotate(20deg);
         }
 
@@ -306,7 +306,7 @@
             position: absolute;
             top: 15px;
             left: 10px;
-            font-size: 44px;
+            font-size: 36px;
             color: #d4af37;
             opacity: 0.08;
             transform: rotate(-15deg);
@@ -320,7 +320,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 30px 24px;
+            padding: 40px 24px 30px;
             position: relative;
             background: linear-gradient(170deg, #f0f4f8 0%, #e4eaf2 40%, #dce4ed 100%);
             border-radius: 0 0 48px 48px;
@@ -344,8 +344,8 @@
         }
 
         .cover-photo {
-            width: 130px;
-            height: 130px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             background: linear-gradient(145deg, #dce4ed, #c8d2e0);
             margin-bottom: 16px;
@@ -377,12 +377,12 @@
 
         .cover-badge {
             display: inline-block;
-            padding: 4px 18px;
+            padding: 4px 16px;
             border-radius: 50px;
             background: rgba(100, 149, 237, 0.06);
             border: 1px solid rgba(100, 149, 237, 0.1);
             font-family: 'Poppins', sans-serif;
-            font-size: 9px;
+            font-size: 8px;
             letter-spacing: 3px;
             text-transform: uppercase;
             color: #4169E1;
@@ -392,7 +392,7 @@
 
         .cover-title {
             font-family: 'Great Vibes', cursive;
-            font-size: 18px;
+            font-size: 16px;
             color: #4169E1;
             letter-spacing: 2px;
             margin-bottom: 2px;
@@ -401,7 +401,7 @@
 
         .cover-couple {
             font-family: 'Playfair Display', serif;
-            font-size: 30px;
+            font-size: 28px;
             font-weight: 600;
             color: #0a1a3a;
             letter-spacing: 3px;
@@ -412,7 +412,7 @@
 
         .cover-couple .ampersand {
             font-family: 'Great Vibes', cursive;
-            font-size: 26px;
+            font-size: 24px;
             color: #d4af37;
             display: inline-block;
             margin: 0 6px;
@@ -420,27 +420,27 @@
 
         .cover-sub {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 400;
             color: #4a6a8a;
             letter-spacing: 5px;
             text-transform: uppercase;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
             animation: fadeInUp 1.2s ease 0.2s both;
         }
 
         .cover-divider {
-            width: 60px;
+            width: 50px;
             height: 1px;
             background: linear-gradient(90deg, transparent, #d4af37, transparent);
-            margin: 0 auto 14px;
+            margin: 0 auto 12px;
             opacity: 0.3;
             animation: fadeInUp 1.2s ease 0.25s both;
         }
 
         .cover-guest {
             font-family: 'Poppins', sans-serif;
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 300;
             color: #4a6a8a;
             letter-spacing: 3px;
@@ -457,7 +457,7 @@
 
         .cover-guest-name {
             font-family: 'Playfair Display', serif;
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 500;
             color: #0a1a3a;
             position: relative;
@@ -470,12 +470,12 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 12px;
+            font-size: 10px;
             color: #d4af37;
             opacity: 0.3;
         }
-        .cover-guest-name::before { left: -20px; }
-        .cover-guest-name::after { right: -20px; }
+        .cover-guest-name::before { left: -18px; }
+        .cover-guest-name::after { right: -18px; }
 
         .admin-edit-area {
             display: flex;
@@ -490,7 +490,7 @@
             align-items: center;
             gap: 4px;
             font-family: 'Poppins', sans-serif;
-            font-size: 8px;
+            font-size: 7px;
             color: #4169E1;
             opacity: 0.2;
             letter-spacing: 1px;
@@ -500,7 +500,7 @@
             background: transparent;
             border: none;
             font-family: 'Poppins', sans-serif;
-            font-size: 10px;
+            font-size: 9px;
             color: #4169E1;
             cursor: pointer;
             opacity: 0.2;
@@ -521,10 +521,10 @@
             background: linear-gradient(145deg, #4169E1, #3158C8, #1a4aaf);
             color: #fff;
             border: none;
-            padding: 14px 44px;
+            padding: 14px 40px;
             border-radius: 50px;
             font-family: 'Poppins', sans-serif;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 500;
             letter-spacing: 3px;
             text-transform: uppercase;
@@ -544,7 +544,7 @@
             width: 200%;
             height: 200%;
             background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.05) 50%, transparent 70%);
-            animation: shimmer 4s ease-in-out infinite;
+            animation: shimmer 5s ease-in-out infinite;
             transform: rotate(25deg);
         }
 
@@ -560,7 +560,7 @@
 
         /* ===== MAIN SECTION ===== */
         .main-section {
-            padding: 20px 0 20px;
+            padding: 16px 0 20px;
             position: relative;
         }
 
@@ -568,7 +568,7 @@
             text-align: center;
             margin: 4px 0 14px;
             font-family: 'Great Vibes', cursive;
-            font-size: 20px;
+            font-size: 18px;
             color: #d4af37;
             letter-spacing: 3px;
             opacity: 0.3;
@@ -582,12 +582,12 @@
 
         .section-title {
             font-family: 'Playfair Display', serif;
-            font-size: 18px;
+            font-size: 16px;
             color: #0a1a3a;
             text-align: center;
             font-weight: 500;
             letter-spacing: 2px;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
         }
 
         .section-title .gold {
@@ -598,8 +598,8 @@
         .couple-info {
             display: flex;
             flex-direction: column;
-            gap: 16px;
-            margin-bottom: 16px;
+            gap: 14px;
+            margin-bottom: 14px;
         }
 
         .couple-card {
@@ -607,7 +607,7 @@
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border-radius: 20px;
-            padding: 16px 18px;
+            padding: 18px 20px;
             border: 1px solid rgba(255, 255, 255, 0.4);
             box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
             transition: all 0.3s ease;
@@ -634,27 +634,36 @@
             color: #0a1a3a;
         }
 
-        .couple-card .parents {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 14px;
-            color: #4a6a8a;
-            margin-top: 2px;
-            font-weight: 400;
-        }
-
-        .couple-card .parents i {
-            color: #d4af37;
-            margin: 0 4px;
-            font-size: 10px;
-            opacity: 0.5;
-        }
-
         .couple-card .divider-line {
             width: 30px;
             height: 1px;
             background: linear-gradient(90deg, transparent, #d4af37, transparent);
-            margin: 4px 0;
+            margin: 6px 0;
             opacity: 0.3;
+        }
+
+        .couple-card .parents {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 14px;
+            color: #4a6a8a;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .couple-card .parents i {
+            color: #d4af37;
+            margin-right: 4px;
+            font-size: 10px;
+            opacity: 0.5;
+            width: 14px;
+            text-align: center;
+        }
+
+        .couple-card .parents .heart-icon {
+            color: #d4af37;
+            font-size: 7px;
+            margin: 0 4px;
+            opacity: 0.4;
         }
 
         /* ===== WEDDING DETAILS ===== */
@@ -663,7 +672,7 @@
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border-radius: 20px;
-            padding: 16px 18px;
+            padding: 18px 20px;
             margin-bottom: 14px;
             border: 1px solid rgba(255, 255, 255, 0.4);
             box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
@@ -672,7 +681,7 @@
 
         .wedding-details .date {
             font-family: 'Playfair Display', serif;
-            font-size: 18px;
+            font-size: 17px;
             font-weight: 600;
             color: #0a1a3a;
         }
@@ -684,7 +693,7 @@
 
         .wedding-details .place {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 16px;
+            font-size: 15px;
             color: #4a6a8a;
             margin-top: 2px;
         }
@@ -694,7 +703,7 @@
             margin-right: 6px;
         }
 
-        /* ===== GUEST LIST (Turut Mengundang) ===== */
+        /* ===== GUEST LIST ===== */
         .guest-list {
             background: rgba(255, 255, 255, 0.3);
             backdrop-filter: blur(12px);
@@ -707,7 +716,7 @@
 
         .guest-list .guest-label {
             font-family: 'Great Vibes', cursive;
-            font-size: 18px;
+            font-size: 17px;
             color: #d4af37;
             text-align: center;
             letter-spacing: 2px;
@@ -718,17 +727,17 @@
         .guest-list .guest-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4px 12px;
+            gap: 2px 10px;
         }
 
         .guest-list .guest-item {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 13px;
+            font-size: 12px;
             color: #2a4a6a;
             font-weight: 400;
-            padding: 2px 0;
+            padding: 3px 0 3px 12px;
             position: relative;
-            padding-left: 12px;
+            line-height: 1.4;
         }
 
         .guest-list .guest-item::before {
@@ -737,7 +746,7 @@
             left: 0;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 8px;
+            font-size: 7px;
             color: #d4af37;
             opacity: 0.3;
         }
@@ -753,20 +762,29 @@
         }
 
         .guest-list .guest-item .title {
-            font-size: 10px;
+            font-size: 9px;
             color: #4169E1;
             font-weight: 500;
             letter-spacing: 1px;
             text-transform: uppercase;
         }
 
+        .guest-list .guest-item .sub-title {
+            font-size: 8px;
+            color: #6a8aaa;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 2px;
+        }
+
         /* ===== HERO ===== */
         .hero-image {
             width: 100%;
-            height: 200px;
-            border-radius: 24px;
+            height: 190px;
+            border-radius: 20px;
             background: linear-gradient(145deg, #dce4ed, #c8d2e0);
-            margin-bottom: 18px;
+            margin-bottom: 16px;
             position: relative;
             overflow: hidden;
             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.04);
@@ -783,13 +801,13 @@
             bottom: 0;
             left: 0;
             right: 0;
-            padding: 20px 20px 14px;
+            padding: 16px 20px 12px;
             background: linear-gradient(0deg, rgba(10,14,26,0.25) 0%, transparent 100%);
         }
 
         .hero-image .hero-overlay .tag {
             font-family: 'Great Vibes', cursive;
-            font-size: 13px;
+            font-size: 12px;
             color: rgba(255,255,255,0.8);
             letter-spacing: 2px;
         }
@@ -799,24 +817,23 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 8px;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
         .countdown-item {
             background: rgba(255, 255, 255, 0.5);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border-radius: 16px;
-            padding: 12px 4px;
+            border-radius: 14px;
+            padding: 10px 4px;
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.5);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
-            transition: all 0.3s ease;
         }
 
         .countdown-number {
             font-family: 'Playfair Display', serif;
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 600;
             color: #0a1a3a;
             line-height: 1;
@@ -828,11 +845,11 @@
 
         .countdown-label {
             font-family: 'Poppins', sans-serif;
-            font-size: 8px;
+            font-size: 7px;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: #6a8aaa;
-            margin-top: 4px;
+            margin-top: 3px;
             font-weight: 300;
         }
 
@@ -841,17 +858,16 @@
             background: rgba(255, 255, 255, 0.5);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border-radius: 20px;
+            border-radius: 18px;
             padding: 16px 18px;
             margin-bottom: 12px;
             border: 1px solid rgba(255, 255, 255, 0.4);
             box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
-            transition: all 0.3s ease;
         }
 
         .info-card .label {
             font-family: 'Poppins', sans-serif;
-            font-size: 9px;
+            font-size: 8px;
             text-transform: uppercase;
             letter-spacing: 3px;
             color: #4169E1;
@@ -860,7 +876,7 @@
 
         .info-card .value {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 17px;
+            font-size: 16px;
             font-weight: 500;
             color: #0a1a3a;
             margin-top: 2px;
@@ -869,8 +885,8 @@
         .info-card .value i {
             color: #d4af37;
             margin-right: 8px;
-            font-size: 14px;
-            width: 20px;
+            font-size: 13px;
+            width: 18px;
             text-align: center;
         }
 
@@ -885,10 +901,10 @@
         .btn-outline {
             background: transparent;
             border: 1px solid rgba(65, 105, 225, 0.15);
-            padding: 8px 18px;
+            padding: 7px 16px;
             border-radius: 50px;
             font-family: 'Poppins', sans-serif;
-            font-size: 10px;
+            font-size: 9px;
             font-weight: 400;
             color: #0a1a3a;
             cursor: pointer;
@@ -905,6 +921,7 @@
 
         .btn-outline i {
             color: #4169E1;
+            font-size: 10px;
         }
 
         .btn-outline-gold {
@@ -912,12 +929,16 @@
             border: 1px solid rgba(212, 175, 55, 0.08);
         }
 
+        .btn-outline-gold i {
+            color: #d4af37;
+        }
+
         /* ===== GALLERY ===== */
         .gallery-scroll {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             overflow-x: auto;
-            padding: 4px 0 14px;
+            padding: 4px 0 12px;
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
         }
@@ -931,19 +952,14 @@
         }
 
         .gallery-item {
-            min-width: 130px;
-            height: 150px;
-            border-radius: 20px;
+            min-width: 120px;
+            height: 140px;
+            border-radius: 18px;
             background: linear-gradient(145deg, #dce4ed, #c8d2e0);
             flex-shrink: 0;
             scroll-snap-align: start;
             overflow: hidden;
             box-shadow: 0 6px 24px rgba(0, 0, 0, 0.03);
-            transition: all 0.3s ease;
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.02);
         }
 
         .gallery-item img {
@@ -954,27 +970,27 @@
 
         /* ===== RSVP ===== */
         .rsvp-section {
-            padding: 4px 0 20px;
+            padding: 4px 0 16px;
         }
 
         .rsvp-form {
             background: rgba(255, 255, 255, 0.4);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border-radius: 24px;
-            padding: 22px 20px;
+            border-radius: 22px;
+            padding: 20px 18px;
             border: 1px solid rgba(255, 255, 255, 0.3);
             box-shadow: 0 4px 28px rgba(0, 0, 0, 0.02);
-            margin-bottom: 18px;
+            margin-bottom: 16px;
         }
 
         .form-group {
-            margin-bottom: 14px;
+            margin-bottom: 12px;
         }
 
         .form-group label {
             font-family: 'Poppins', sans-serif;
-            font-size: 9px;
+            font-size: 8px;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: #4a6a8a;
@@ -987,13 +1003,13 @@
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 12px 16px;
+            padding: 10px 14px;
             border: 1px solid rgba(65, 105, 225, 0.06);
-            border-radius: 14px;
+            border-radius: 12px;
             background: rgba(255, 255, 255, 0.5);
             backdrop-filter: blur(6px);
             font-family: 'Poppins', sans-serif;
-            font-size: 13px;
+            font-size: 12px;
             color: #0a1a3a;
             transition: all 0.4s ease;
             outline: none;
@@ -1012,19 +1028,19 @@
         }
 
         .form-group textarea {
-            min-height: 70px;
+            min-height: 60px;
             resize: vertical;
         }
 
         .btn-submit {
             width: 100%;
-            padding: 14px;
+            padding: 12px;
             background: linear-gradient(145deg, #4169E1, #3158C8, #1a4aaf);
             color: #fff;
             border: none;
             border-radius: 50px;
             font-family: 'Poppins', sans-serif;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 500;
             letter-spacing: 2px;
             cursor: pointer;
@@ -1042,48 +1058,43 @@
             background: rgba(255, 255, 255, 0.3);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
-            border-radius: 18px;
-            padding: 14px 16px;
+            border-radius: 16px;
+            padding: 12px 16px;
             margin-bottom: 10px;
             border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
         }
 
-        .wish-item:hover {
-            background: rgba(255, 255, 255, 0.4);
-            transform: translateX(4px);
-        }
-
         .wish-item .name {
             font-family: 'Playfair Display', serif;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
             color: #0a1a3a;
         }
 
         .wish-item .msg {
             font-family: 'Poppins', sans-serif;
-            font-size: 12px;
+            font-size: 11px;
             color: #2a4a6a;
-            margin: 4px 0 6px;
+            margin: 3px 0 5px;
             font-weight: 300;
             line-height: 1.5;
         }
 
         .wish-item .meta {
             font-family: 'Poppins', sans-serif;
-            font-size: 9px;
+            font-size: 8px;
             color: #6a8aaa;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             flex-wrap: wrap;
         }
 
         .wish-item .reactions {
             display: flex;
-            gap: 6px;
-            font-size: 14px;
+            gap: 5px;
+            font-size: 13px;
         }
 
         .wish-item .reactions span {
@@ -1097,15 +1108,15 @@
 
         .rsvp-stats {
             display: flex;
-            gap: 16px;
+            gap: 12px;
             justify-content: center;
-            padding: 10px 0 16px;
+            padding: 8px 0 14px;
             flex-wrap: wrap;
         }
 
         .rsvp-stats .stat {
             font-family: 'Poppins', sans-serif;
-            font-size: 11px;
+            font-size: 10px;
             color: #4a6a8a;
             background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(6px);
@@ -1114,7 +1125,7 @@
             border: 1px solid rgba(255, 255, 255, 0.15);
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
         }
 
         .rsvp-stats .stat .num {
@@ -1134,8 +1145,8 @@
         }
 
         .floating-btn {
-            width: 44px;
-            height: 44px;
+            width: 42px;
+            height: 42px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(20px);
@@ -1146,13 +1157,13 @@
             align-items: center;
             justify-content: center;
             color: #0a1a3a;
-            font-size: 15px;
+            font-size: 14px;
             cursor: pointer;
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         .floating-btn:hover {
-            transform: translateY(-4px) scale(1.05);
+            transform: translateY(-3px) scale(1.05);
         }
 
         .floating-btn:active {
@@ -1172,9 +1183,9 @@
         /* ===== FOOTER ===== */
         .footer {
             text-align: center;
-            padding: 20px 0 10px;
+            padding: 16px 0 10px;
             font-family: 'Poppins', sans-serif;
-            font-size: 8px;
+            font-size: 7px;
             color: #6a8aaa;
             letter-spacing: 2px;
             border-top: 1px solid rgba(65, 105, 225, 0.03);
@@ -1183,39 +1194,39 @@
 
         .footer .brand {
             font-family: 'Great Vibes', cursive;
-            font-size: 16px;
+            font-size: 15px;
             color: #d4af37;
             display: block;
-            margin-bottom: 4px;
+            margin-bottom: 3px;
             letter-spacing: 4px;
             opacity: 0.5;
         }
 
         .footer .brand span {
             display: inline-block;
-            padding: 0 6px;
+            padding: 0 5px;
             opacity: 0.3;
         }
 
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes float {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-8px) rotate(1deg); }
+            50% { transform: translateY(-6px) rotate(1deg); }
         }
 
         .float-anim {
-            animation: float 5s ease-in-out infinite;
+            animation: float 6s ease-in-out infinite;
         }
 
         .status-badge {
             display: inline-block;
-            padding: 3px 14px;
+            padding: 2px 12px;
             border-radius: 50px;
-            font-size: 9px;
+            font-size: 8px;
             font-weight: 500;
             letter-spacing: 1px;
             background: rgba(65, 105, 225, 0.03);
@@ -1240,9 +1251,9 @@
         .dark-toggle button {
             background: transparent;
             border: none;
-            padding: 5px 10px;
+            padding: 4px 10px;
             border-radius: 50px;
-            font-size: 11px;
+            font-size: 10px;
             cursor: pointer;
             color: #4a6a8a;
             transition: all 0.3s ease;
@@ -1260,7 +1271,7 @@
             align-items: center;
             gap: 4px;
             font-family: 'Poppins', sans-serif;
-            font-size: 8px;
+            font-size: 7px;
             color: #27ae60;
             opacity: 0.5;
             letter-spacing: 0.5px;
@@ -1487,7 +1498,7 @@
         .modal-content {
             background: #f0f4f8;
             border-radius: 28px;
-            padding: 32px 28px;
+            padding: 28px 24px;
             max-width: 360px;
             width: 90%;
             box-shadow: 0 40px 100px rgba(0, 0, 0, 0.4);
@@ -1502,7 +1513,7 @@
 
         .modal-content .modal-icon {
             text-align: center;
-            font-size: 28px;
+            font-size: 26px;
             margin-bottom: 6px;
             color: #d4af37;
             opacity: 0.4;
@@ -1510,7 +1521,7 @@
 
         .modal-content h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 20px;
+            font-size: 18px;
             color: #0a1a3a;
             text-align: center;
             margin-bottom: 4px;
@@ -1518,19 +1529,19 @@
 
         .modal-content .modal-sub {
             font-family: 'Poppins', sans-serif;
-            font-size: 12px;
+            font-size: 11px;
             color: #4a6a8a;
             text-align: center;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
         }
 
         .password-section {
-            margin: 10px 0 14px;
+            margin: 10px 0 12px;
         }
 
         .password-section label {
             font-family: 'Poppins', sans-serif;
-            font-size: 9px;
+            font-size: 8px;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: #4a6a8a;
@@ -1546,12 +1557,12 @@
 
         .password-section input {
             flex: 1;
-            padding: 10px 14px;
+            padding: 10px 12px;
             border: 1px solid rgba(65, 105, 225, 0.06);
             border-radius: 12px;
             background: rgba(255, 255, 255, 0.3);
             font-family: 'Poppins', sans-serif;
-            font-size: 13px;
+            font-size: 12px;
             color: #0a1a3a;
             outline: none;
             transition: all 0.3s ease;
@@ -1563,13 +1574,13 @@
         }
 
         .password-section .btn-verify {
-            padding: 10px 16px;
+            padding: 10px 14px;
             border: none;
             border-radius: 12px;
             background: linear-gradient(145deg, #4169E1, #3158C8);
             color: #fff;
             font-family: 'Poppins', sans-serif;
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 500;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -1583,7 +1594,7 @@
 
         .password-section .password-error {
             font-family: 'Poppins', sans-serif;
-            font-size: 10px;
+            font-size: 9px;
             color: #e74c3c;
             margin-top: 4px;
             display: none;
@@ -1595,7 +1606,7 @@
 
         .password-section .password-success {
             font-family: 'Poppins', sans-serif;
-            font-size: 10px;
+            font-size: 9px;
             color: #27ae60;
             margin-top: 4px;
             display: none;
@@ -1618,16 +1629,16 @@
         .modal-actions {
             display: flex;
             gap: 10px;
-            margin-top: 16px;
+            margin-top: 14px;
         }
 
         .modal-actions button {
             flex: 1;
-            padding: 12px;
+            padding: 10px;
             border: none;
             border-radius: 50px;
             font-family: 'Poppins', sans-serif;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 500;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -1685,6 +1696,7 @@
             color: #e8edf5;
         }
 
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 420px) {
             .phone-mockup {
                 max-width: 100%;
@@ -1708,16 +1720,38 @@
                 top: 16px;
             }
             .cover-couple {
-                font-size: 28px;
+                font-size: 24px;
+            }
+            .cover-guest-name {
+                font-size: 19px;
             }
             .countdown-number {
-                font-size: 24px;
+                font-size: 22px;
             }
             .guest-list .guest-grid {
                 grid-template-columns: 1fr;
             }
             .guest-list .guest-item.span-2 {
                 grid-column: span 1;
+            }
+            .couple-card .name {
+                font-size: 17px;
+            }
+            .couple-card .parents {
+                font-size: 12px;
+            }
+            .wedding-details .date {
+                font-size: 15px;
+            }
+            .wedding-details .place {
+                font-size: 13px;
+            }
+            .gallery-item {
+                min-width: 100px;
+                height: 120px;
+            }
+            .hero-image {
+                height: 160px;
             }
         }
 
@@ -1727,7 +1761,10 @@
                 height: 100px;
             }
             .cover-couple {
-                font-size: 24px;
+                font-size: 22px;
+            }
+            .cover-guest-name {
+                font-size: 18px;
             }
             .countdown-number {
                 font-size: 20px;
@@ -1742,8 +1779,23 @@
             .couple-card .name {
                 font-size: 17px;
             }
+            .couple-card .parents {
+                font-size: 12px;
+            }
             .wedding-details .date {
                 font-size: 15px;
+            }
+            .wedding-details .place {
+                font-size: 13px;
+            }
+            .couple-card {
+                padding: 14px 16px;
+            }
+            .wedding-details {
+                padding: 14px 16px;
+            }
+            .guest-list {
+                padding: 14px 16px;
             }
         }
     </style>
@@ -1766,7 +1818,7 @@
                 <div class="password-success" id="passwordSuccess">✅ Verifikasi berhasil!</div>
             </div>
             <div class="name-edit-area" id="nameEditArea">
-                <label style="font-family:'Poppins',sans-serif; font-size:9px; text-transform:uppercase; letter-spacing:2px; color:#4a6a8a; display:block; margin-bottom:4px;">Nama Tamu</label>
+                <label style="font-family:'Poppins',sans-serif; font-size:8px; text-transform:uppercase; letter-spacing:2px; color:#4a6a8a; display:block; margin-bottom:4px;">Nama Tamu</label>
                 <input type="text" id="guestNameInput" placeholder="Masukkan nama tamu" />
                 <div class="modal-actions">
                     <button class="btn-cancel" onclick="closeGuestModal()">Batal</button>
@@ -1794,7 +1846,7 @@
             <div id="loading-screen">
                 <div class="loader-ring"></div>
                 <div class="loader-text">
-                    <span>H</span><span>a</span><span>n</span><span>i</span><span>f</span><span>a</span><span>h</span>
+                    <span>N</span><span>u</span><span>r</span><span>h</span><span>a</span><span>n</span><span>i</span><span>f</span><span>a</span><span>h</span>
                     <span style="margin:0 4px;">&</span>
                     <span>F</span><span>a</span><span>r</span><span>i</span><span>d</span>
                 </div>
@@ -1817,7 +1869,7 @@
                 <section class="cover-section" id="cover">
                     <div class="cover-badge">✦ We're Getting Married ✦</div>
                     <div class="cover-photo float-anim">
-                        <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=200&h=200&fit=crop&crop=center" alt="Hanifah & Farid" />
+                        <img src="images/1.JPG" alt="Nurhanifah & Farid" />
                     </div>
                     <div class="cover-title">The Wedding Of</div>
                     <div class="cover-couple">
@@ -1836,7 +1888,7 @@
                         </button>
                     </div>
                     <button class="btn-primary" onclick="openInvitation()">
-                        <i class="fas fa-envelope-open" style="margin-right: 12px;"></i> Buka Undangan
+                        <i class="fas fa-envelope-open" style="margin-right: 10px;"></i> Buka Undangan
                     </button>
                 </section>
 
@@ -1855,7 +1907,9 @@
                             <div class="name">Nurhanifah</div>
                             <div class="divider-line"></div>
                             <div class="parents">
-                                <i class="fas fa-user"></i> Bapak Muhamad <i class="fas fa-heart" style="font-size:8px;"></i> Ibu Surati
+                                <i class="fas fa-user"></i> Bapak Muhamad 
+                                <span class="heart-icon">❤</span> 
+                                Ibu Surati
                             </div>
                         </div>
 
@@ -1865,7 +1919,9 @@
                             <div class="name">Farid Ramadhona</div>
                             <div class="divider-line"></div>
                             <div class="parents">
-                                <i class="fas fa-user"></i> Bapak Rahmat M Kafi <i class="fas fa-heart" style="font-size:8px;"></i> Ibu Aenok Fauziyah
+                                <i class="fas fa-user"></i> Bapak Rahmat M Kafi 
+                                <span class="heart-icon">❤</span> 
+                                Ibu Aenok Fauziyah
                             </div>
                         </div>
                     </div>
@@ -1882,7 +1938,7 @@
 
                     <!-- ===== HERO ===== -->
                     <div class="hero-image">
-                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600&h=300&fit=crop&crop=center" alt="Couple Hero" />
+                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600&h=300&fit=crop&crop=center" alt="Nurhanifah & Farid" />
                         <div class="hero-overlay">
                             <div class="tag">✦ Nurhanifah & Farid ✦</div>
                         </div>
@@ -1942,8 +1998,8 @@
                         <div class="guest-label">✧ Turut Mengundang ✧</div>
                         <div class="guest-grid">
                             <div class="guest-item span-2"><span class="title">✧ Al-Habib</span></div>
-                            <div class="guest-item span-2">Alhabib Alwi Bin Sayyidil Walid Al Habib Abdurrohman Assegaf</div>
-                            <div class="guest-item span-2">Al Habib Syafiq Bin Yahya</div>
+                            <div class="guest-item span-2" style="font-size:11px;">Alhabib Alwi Bin Sayyidil Walid Al Habib Abdurrohman Assegaf</div>
+                            <div class="guest-item span-2" style="font-size:11px;">Al Habib Syafiq Bin Yahya</div>
 
                             <div class="guest-item span-2" style="margin-top:4px;"><span class="title">✧ Ustadz</span></div>
                             <div class="guest-item">Ustadz Abdurrahman</div>
@@ -1957,9 +2013,9 @@
                     </div>
 
                     <!-- ===== GALLERY ===== -->
-                    <div style="margin: 16px 0 10px;">
-                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-                            <span style="font-family:'Playfair Display',serif; font-size:16px; color:#0a1a3a; font-weight:500;">Galeri Momen</span>
+                    <div style="margin: 14px 0 10px;">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                            <span style="font-family:'Playfair Display',serif; font-size:15px; color:#0a1a3a; font-weight:500;">Galeri Momen</span>
                             <span class="status-badge">❤️ 12 foto</span>
                         </div>
                         <div class="gallery-scroll">
@@ -1971,11 +2027,11 @@
                         </div>
                     </div>
 
-                    <div class="section-divider" style="margin:20px 0 10px;"><span>— ✦ —</span></div>
+                    <div class="section-divider" style="margin:16px 0 10px;"><span>— ✦ —</span></div>
 
                     <!-- ===== RSVP & WISHES ===== -->
                     <div class="rsvp-section" id="rsvp">
-                        <h3 style="font-family:'Playfair Display',serif; font-size:20px; color:#0a1a3a; text-align:center; margin-bottom:14px; font-weight:500; letter-spacing:2px;">
+                        <h3 style="font-family:'Playfair Display',serif; font-size:18px; color:#0a1a3a; text-align:center; margin-bottom:12px; font-weight:500; letter-spacing:2px;">
                             RSVP & Ucapan
                         </h3>
 
@@ -1987,11 +2043,11 @@
 
                         <div class="rsvp-form">
                             <div class="form-group">
-                                <label><i class="fas fa-user" style="margin-right:6px;"></i> Nama Lengkap</label>
+                                <label><i class="fas fa-user" style="margin-right:4px;"></i> Nama Lengkap</label>
                                 <input type="text" id="rsvpName" placeholder="Tulis nama Anda" />
                             </div>
                             <div class="form-group">
-                                <label><i class="fas fa-check-circle" style="margin-right:6px;"></i> Kehadiran</label>
+                                <label><i class="fas fa-check-circle" style="margin-right:4px;"></i> Kehadiran</label>
                                 <select id="rsvpStatus">
                                     <option value="Hadir">✨ Hadir</option>
                                     <option value="Tidak Hadir">💫 Tidak Hadir</option>
@@ -1999,15 +2055,15 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label><i class="fas fa-users" style="margin-right:6px;"></i> Jumlah Tamu</label>
+                                <label><i class="fas fa-users" style="margin-right:4px;"></i> Jumlah Tamu</label>
                                 <input type="number" id="rsvpGuests" value="1" min="1" max="10" />
                             </div>
                             <div class="form-group">
-                                <label><i class="fas fa-heart" style="margin-right:6px;"></i> Ucapan & Doa</label>
+                                <label><i class="fas fa-heart" style="margin-right:4px;"></i> Ucapan & Doa</label>
                                 <textarea id="rsvpMessage" placeholder="Tulis ucapan, doa, atau harapan Anda..."></textarea>
                             </div>
                             <button class="btn-submit" onclick="submitRSVP()">
-                                <i class="fas fa-paper-plane" style="margin-right:10px;"></i> Kirim Ucapan
+                                <i class="fas fa-paper-plane" style="margin-right:8px;"></i> Kirim Ucapan
                             </button>
                         </div>
 
@@ -2020,7 +2076,7 @@
 
                         <!-- Wishes Feed -->
                         <div id="wishesFeed">
-                            <div style="text-align:center; padding:20px; color:#6a8aaa; font-family:'Poppins',sans-serif; font-size:11px;">
+                            <div style="text-align:center; padding:20px; color:#6a8aaa; font-family:'Poppins',sans-serif; font-size:10px;">
                                 <i class="fas fa-spinner fa-spin"></i> Memuat ucapan...
                             </div>
                         </div>
@@ -2196,7 +2252,7 @@
         }
 
         // ============================================================
-        // COUNTDOWN - UPDATED TO 2026
+        // COUNTDOWN - 2026
         // ============================================================
         const weddingDate = new Date('2026-09-05T09:00:00').getTime();
 
@@ -2327,8 +2383,8 @@
 
                     if (wishes.length === 0) {
                         feed.innerHTML = `
-                            <div style="text-align:center; padding:30px; color:#6a8aaa; font-family:'Poppins',sans-serif; font-size:12px;">
-                                <i class="fas fa-heart" style="color:#d4af37; font-size:22px; display:block; margin-bottom:6px;"></i>
+                            <div style="text-align:center; padding:25px; color:#6a8aaa; font-family:'Poppins',sans-serif; font-size:11px;">
+                                <i class="fas fa-heart" style="color:#d4af37; font-size:20px; display:block; margin-bottom:6px;"></i>
                                 Belum ada ucapan. Jadilah yang pertama!
                             </div>
                         `;
@@ -2359,8 +2415,8 @@
 
             if (localWishes.length === 0) {
                 feed.innerHTML = `
-                    <div style="text-align:center; padding:30px; color:#6a8aaa; font-family:'Poppins',sans-serif; font-size:12px;">
-                        <i class="fas fa-heart" style="color:#d4af37; font-size:22px; display:block; margin-bottom:6px;"></i>
+                    <div style="text-align:center; padding:25px; color:#6a8aaa; font-family:'Poppins',sans-serif; font-size:11px;">
+                        <i class="fas fa-heart" style="color:#d4af37; font-size:20px; display:block; margin-bottom:6px;"></i>
                         Belum ada ucapan. Jadilah yang pertama!
                     </div>
                 `;
